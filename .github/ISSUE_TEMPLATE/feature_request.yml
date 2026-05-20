@@ -1,0 +1,62 @@
+name: Feature request
+description: Propose a sharpening or addition to the skill
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before opening this, please read [CONTRIBUTING.md](../blob/main/CONTRIBUTING.md) — particularly the section on what kinds of changes fit.
+
+        The skill is opinionated. Sharpening welcome. Diluting not.
+
+  - type: textarea
+    id: what
+    attributes:
+      label: What you want to add or change
+      description: One paragraph describing the change.
+    validations:
+      required: true
+
+  - type: textarea
+    id: why
+    attributes:
+      label: Why
+      description: |
+        What concept-film failure mode does this address? What did the existing skill miss?
+        Concrete > abstract. If you've made films that ran into this, describe them.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Scope of change
+      options:
+        - "New scene type"
+        - "Framework / script-rule addition"
+        - "Voice shortlist change"
+        - "Design direction addition"
+        - "Banned word addition"
+        - "Documentation"
+        - "Tooling / scripts"
+        - "Other"
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: |
+        What else did you think about? Why is this the right approach?
+
+  - type: checkboxes
+    id: alignment
+    attributes:
+      label: Alignment with project scope
+      description: Confirm you've read the contribution guidelines.
+      options:
+        - label: I've read CONTRIBUTING.md and this proposal sharpens existing opinions rather than expanding scope
+          required: true
+        - label: I've checked that this isn't already covered by an existing reference file
+          required: true

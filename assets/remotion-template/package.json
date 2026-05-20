@@ -1,0 +1,29 @@
+{
+  "name": "concept-film",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Remotion template for a studio concept film. Populated by the studio-concept-film skill.",
+  "scripts": {
+    "start": "remotion preview src/index.ts",
+    "build": "remotion render src/index.ts Full out/final.mp4",
+    "build:hook": "remotion render src/index.ts Hook out/hook.mp4",
+    "upgrade": "remotion upgrade"
+  },
+  "dependencies": {
+    "@remotion/bundler": "^4.0.0",
+    "@remotion/cli": "^4.0.0",
+    "@remotion/google-fonts": "^4.0.0",
+    "@remotion/media-utils": "^4.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "remotion": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.0",
+    "@types/web": "^0.0.96",
+    "typescript": "^5.5.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 540" width="1280" height="540" role="img" aria-label="studio-concept-film hero">
+  <defs>
+    <linearGradient id="bg-gradient" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0A0A0A"/>
+      <stop offset="100%" stop-color="#141212"/>
+    </linearGradient>
+    <linearGradient id="accent-glow" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#C68B3C" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#C68B3C" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#C68B3C" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="grain" x="0" y="0">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="3"/>
+      <feColorMatrix values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.04 0"/>
+      <feComposite in2="SourceGraphic" operator="in"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1280" height="540" fill="url(#bg-gradient)"/>
+
+  <!-- Grain overlay -->
+  <rect width="1280" height="540" fill="white" opacity="0.02" filter="url(#grain)"/>
+
+  <!-- Aspect-ratio cinematic letterbox bars (subtle) -->
+  <rect x="0" y="0" width="1280" height="48" fill="#000000"/>
+  <rect x="0" y="492" width="1280" height="48" fill="#000000"/>
+
+  <!-- Top-left runner: project mark and timecode -->
+  <g transform="translate(56, 88)">
+    <text font-family="ui-monospace, 'JetBrains Mono', 'Courier New', monospace" font-size="13" letter-spacing="0.18em" fill="#6B6B6B">
+      TRANSFORMATIVE.STUDIO   //   FRAMEWORK 01
+    </text>
+  </g>
+
+  <!-- Top-right runner: timecode -->
+  <g transform="translate(1224, 88)" text-anchor="end">
+    <text font-family="ui-monospace, 'JetBrains Mono', 'Courier New', monospace" font-size="13" letter-spacing="0.18em" fill="#6B6B6B">
+      01:30:00:00
+    </text>
+  </g>
+
+  <!-- Center column -->
+  <g transform="translate(640, 270)" text-anchor="middle">
+    <!-- Eyebrow -->
+    <text y="-118" font-family="ui-monospace, 'JetBrains Mono', 'Courier New', monospace" font-size="13" letter-spacing="0.32em" fill="#C68B3C">
+      A FRAMEWORK FOR CONCEPT FILMS
+    </text>
+
+    <!-- Title -->
+    <text y="-30" font-family="'GT Sectra Display', 'Tiempos Headline', Georgia, 'Times New Roman', serif" font-weight="700" font-size="108" letter-spacing="-0.025em" fill="#F5F5F4">
+      studio-concept-film
+    </text>
+
+    <!-- Accent rule -->
+    <line x1="-60" y1="14" x2="60" y2="14" stroke="#C68B3C" stroke-width="2"/>
+
+    <!-- Tagline -->
+    <text y="76" font-family="'Inter', 'Söhne', system-ui, sans-serif" font-weight="400" font-size="22" letter-spacing="0" fill="#A8A39E">
+      Sixty seconds. Voiceover-driven. Insight-led. Prototype-grounded.
+    </text>
+
+    <!-- Lineage line -->
+    <text y="120" font-family="'Inter', 'Söhne', system-ui, sans-serif" font-weight="500" font-size="15" letter-spacing="0.06em" fill="#6B6B6B">
+      IN THE INVISION CONCEPT-VIDEO LINEAGE
+    </text>
+  </g>
+
+  <!-- Footer baseline runner -->
+  <g transform="translate(56, 462)">
+    <text font-family="ui-monospace, 'JetBrains Mono', 'Courier New', monospace" font-size="12" letter-spacing="0.18em" fill="#6B6B6B">
+      v1.0   //   MIT
+    </text>
+  </g>
+
+  <g transform="translate(1224, 462)" text-anchor="end">
+    <text font-family="ui-monospace, 'JetBrains Mono', 'Courier New', monospace" font-size="12" letter-spacing="0.18em" fill="#6B6B6B">
+      CLAUDE SKILL · REMOTION · ELEVENLABS
+    </text>
+  </g>
+
+  <!-- Soft accent glow at bottom -->
+  <rect x="0" y="488" width="1280" height="4" fill="url(#accent-glow)"/>
+</svg>
