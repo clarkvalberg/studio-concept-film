@@ -31,6 +31,14 @@ The user wants a tool, not a conversation. Behave accordingly:
 - **Withhold options.** Curation is the value-add. The voice list is 8, not 100. The framework variants are 3, not 12. If the user wants more, they ask.
 - **Recover gracefully.** Missing prototype? Suggest the minimum surface needed. Vague brief? Restate what you can extract and ask the user to confirm or correct.
 
+## Execution context — interactive sessions only
+
+This skill requires an interactive session where the user can respond between phases. The workflow is a series of human-judgment gates; without the human, the gates collapse and the output looks complete but fails on craft.
+
+- If running inside an autonomous task, batch prompt, single-shot delegation, scheduled job, or any context where the user cannot provide input between phases: **STOP after Phase 1**, present the brief, and tell the user to run the skill in an interactive Claude Code session to continue.
+- The skill's value is in its gated process — skipping gates produces bad output every time. There is no shortcut.
+- Do not delegate this skill to an autonomous agent. Do not pre-answer the gates in a single prompt. Each gate exists because the downstream phase depends on human judgment at that gate.
+
 ## When to use this skill
 
 **Use when:**
@@ -92,6 +100,8 @@ Receive the user's source material. Inputs may include:
 
 End Phase 1 with: `Concept locked. → Phase 2: clarifying questions.`
 
+**HARD STOP.** Present the two-sentence summary and wait for user confirmation. Do not proceed to Phase 2 until the user explicitly confirms or corrects. Silence is not confirmation.
+
 Read `references/intake-checklist.md` for the full checklist of what to extract from source materials and how to handle each input type.
 
 ### Phase 2 — Three sharp questions (and not one more)
@@ -107,6 +117,8 @@ Ask at most three questions. Skip any whose answer is already in the source mate
 If the source material answers any of these, skip the question and state your inference: "I'm reading the audience as institutional LPs. Correct me if not."
 
 End Phase 2 with: `Brief assembled. → Phase 3: structure and script.`
+
+**HARD STOP.** Present the assembled brief (audience, insight, vision statement) and wait for confirmation.
 
 ### Phase 3 — Variant selection and script
 
@@ -144,6 +156,8 @@ Output the script in `script.md` with timing per section and per beat:
 
 End Phase 3 with: `Script drafted. → Phase 4: design direction.`
 
+**HARD STOP.** Present the full script with on-screen directions and section timing. Wait for the user to approve, edit, or redirect. Do not proceed to design until the script is locked.
+
 ### Phase 4 — Design direction
 
 The film has a visual language. You decide it, then show the user.
@@ -165,6 +179,8 @@ Either way, end with concrete tokens recorded in `design.md`:
 These tokens flow into the Remotion template.
 
 End Phase 4 with: `Design locked. → Phase 5: voice audition.`
+
+**HARD STOP.** Present the design tokens (design.md). Wait for the user to lock the direction. If two directions were proposed, the user must choose before proceeding.
 
 ### Phase 5 — Voice audition
 
@@ -192,6 +208,8 @@ After the user picks (or asks for "more options" → surface the remaining short
 
 End Phase 5 with: `Voice selected. → Phase 6: hook render.`
 
+**HARD STOP.** Play the four voice samples. Wait for the user to pick one. Do not proceed to render until a voice is selected.
+
 ### Phase 6 — Hook render (round-one deliverable)
 
 This is the critical UX moment. Do NOT render the full 90s film yet. Render only the **first 10–15 seconds** — the cold open plus the first beat. This is the iteration unit.
@@ -206,6 +224,8 @@ This is the critical UX moment. Do NOT render the full 90s film yet. Render only
 6. Present `out/hook.mp4` to the user.
 
 End Phase 6 with: `Hook delivered. → Phase 7: iterate or render full.`
+
+**HARD STOP.** Present hook.mp4 to the user. Wait for explicit approval ("looks good", "render full", or similar). Do not render the full film on inferred consent, silence, or assumption. The user must explicitly greenlight the full render.
 
 ### Phase 7 — Iterate, then render full
 
@@ -276,6 +296,8 @@ The skill ships with a set of executable scripts in `scripts/`. Use them rather 
 6. **Never use the word "revolutionary," "game-changing," "leverage," "unlock," "synergy," or "best-in-class" in a script.** Read `references/script-rules.md` for the full banned-words list and why.
 7. **Always state the chosen variant before writing the script.** One sentence. Lets the user redirect if you've read the brief wrong.
 8. **Always name the gate when transitioning phases.** It tells the user where they are and signals confidence in the structure.
+9. **Never run all seven phases without user interaction between them.** Each phase gate requires human judgment. An autonomous pass through all phases produces output that looks complete but fails on craft. If you find yourself advancing past a HARD STOP without user input, you are violating the skill's core contract.
+10. **Never render the full film without explicit user approval of the hook.** "Looks good" or "render full" constitutes approval. Silence, inferred consent, or "seems fine" from a delegating agent does not.
 
 ## On the InVision lineage — what this skill is paying homage to
 

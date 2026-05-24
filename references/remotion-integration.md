@@ -257,3 +257,31 @@ If a project genuinely needs a scene type the template doesn't have:
 3. Note the modification in the project's `README.md` so future runs of the skill don't overwrite
 
 The skill itself should not be writing new scene components on the fly. If you find yourself wanting to, the better move is to pick the closest existing scene type and adjust its props.
+
+## Pre-render checklist
+
+Before calling `render-hook.sh` or `render-full.sh`, verify:
+
+- [ ] Audio file exists at the expected path (`public/audio/hook.mp3` or `public/audio/voiceover.mp3`)
+- [ ] Audio duration has been measured (`scripts/measure-audio.sh`) and `film.ts` section durations updated to match
+- [ ] `meta.totalDuration` equals the sum of all section durations
+- [ ] All asset paths in `sceneProps` (screens, imagery) resolve to real files in `public/`
+- [ ] `BrandTokens.ts` fonts are either Google Fonts (loaded via `@remotion/google-fonts`) or locally installed
+- [ ] `film.ts` compiles without TypeScript errors (run `npx tsc --noEmit`)
+- [ ] First section has immediate visual content (no delayed entrance on frame 1)
+
+If any item is unchecked, fix it before rendering. A failed render costs 3–10 minutes of compute; a checklist pass costs 30 seconds.
+
+## Post-render review checklist
+
+After render completes, before presenting to user:
+
+- [ ] Watch the rendered video at 1x speed, start to finish
+- [ ] Verify first frame is not blank, glitched, or showing a loading state
+- [ ] Verify VO starts within the first 1–2 seconds (not delayed)
+- [ ] Verify visual transitions align with VO sentence boundaries (not mid-sentence)
+- [ ] Verify product name appears on screen when spoken in VO
+- [ ] Verify final frame holds for at least 2 seconds after VO ends
+- [ ] Check file size is reasonable (1080p 90s should be 5–15MB at default quality)
+
+If any item fails, fix it in `film.ts` or `BrandTokens.ts` and re-render. Do not present a flawed render to the user with "I'll fix it after you watch" — the first impression of the film is what they evaluate. See `references/audio-visual-sync.md` for diagnosing specific sync failures.
