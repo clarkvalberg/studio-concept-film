@@ -82,12 +82,12 @@ The hook render is the iteration unit. The full render is the publication unit. 
 
 **Option A — `.skill` file (recommended):**
 
-Download [`studio-concept-film.skill`](https://github.com/YOUR_ORG/studio-concept-film/releases) from the latest release and load it into Claude per [these instructions](docs/INSTALLATION.md).
+Download [`studio-concept-film.skill`](https://github.com/clarkvalberg/studio-concept-film/releases) from the latest release and load it into Claude per [these instructions](docs/INSTALLATION.md).
 
 **Option B — clone and link:**
 
 ```bash
-git clone https://github.com/YOUR_ORG/studio-concept-film.git ~/.claude/skills/studio-concept-film
+git clone https://github.com/clarkvalberg/studio-concept-film.git ~/.claude/skills/studio-concept-film
 ```
 
 (See [INSTALLATION.md](docs/INSTALLATION.md) for environment-specific paths.)

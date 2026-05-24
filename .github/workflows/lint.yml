@@ -11,10 +11,10 @@ jobs:
     name: shellcheck
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
       - name: Run shellcheck
-        uses: ludeeus/action-shellcheck@master
+        uses: ludeeus/action-shellcheck@00cae500b08a931fb5698e11e79bfbd38e612a38 # 2.0.0
         with:
           scandir: ./scripts
           severity: warning
@@ -26,28 +26,24 @@ jobs:
       run:
         working-directory: assets/remotion-template
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af # v4.1.0
         with:
           node-version: "20"
-          cache: "npm"
-          cache-dependency-path: assets/remotion-template/package-lock.json
 
       - name: Install dependencies
         run: npm install --no-audit --no-fund
-        continue-on-error: true
 
       - name: Type-check
         run: npx tsc --noEmit
-        continue-on-error: false
 
   markdown-link-check:
     name: link-check
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
       - name: Check Markdown links
         uses: gaurav-nelson/github-action-markdown-link-check@v1

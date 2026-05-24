@@ -1,11 +1,11 @@
 blank_issues_enabled: false
 contact_links:
   - name: Question about usage
-    url: https://github.com/YOUR_ORG/studio-concept-film/discussions/categories/q-a
+    url: https://github.com/clarkvalberg/studio-concept-film/discussions/categories/q-a
     about: Check the FAQ first, then ask in Discussions if your question isn't covered.
   - name: Show your concept film
-    url: https://github.com/YOUR_ORG/studio-concept-film/discussions/categories/show-and-tell
+    url: https://github.com/clarkvalberg/studio-concept-film/discussions/categories/show-and-tell
     about: Share what you've made with the skill.
   - name: Design philosophy discussion
-    url: https://github.com/YOUR_ORG/studio-concept-film/discussions/categories/general
+    url: https://github.com/clarkvalberg/studio-concept-film/discussions/categories/general
     about: For deeper conversations about the frameworks, the form, or the craft.

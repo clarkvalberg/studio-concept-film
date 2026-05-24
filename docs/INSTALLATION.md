@@ -26,7 +26,7 @@ Optional but recommended:
 
 The packaged `.skill` file is the easiest path. It contains the entire skill in a single distributable.
 
-1. Download the latest `studio-concept-film.skill` from the [Releases](https://github.com/YOUR_ORG/studio-concept-film/releases) page
+1. Download the latest `studio-concept-film.skill` from the [Releases](https://github.com/clarkvalberg/studio-concept-film/releases) page
 2. Load it into Claude:
    - **claude.ai:** Settings → Skills → "Add skill" → upload the file
    - **Claude Code:** drop it in `~/.claude/skills/`
@@ -42,7 +42,7 @@ Useful if you want to read the source, extend the skill, or contribute back.
 
 ```bash
 # Clone into your Claude skills directory
-git clone https://github.com/YOUR_ORG/studio-concept-film.git ~/.claude/skills/studio-concept-film
+git clone https://github.com/clarkvalberg/studio-concept-film.git ~/.claude/skills/studio-concept-film
 
 # Verify the skill is picked up
 ls ~/.claude/skills/studio-concept-film/SKILL.md
@@ -64,7 +64,7 @@ For one-off use without registering the skill globally:
 
 ```bash
 cd ~/projects
-git clone https://github.com/YOUR_ORG/studio-concept-film.git
+git clone https://github.com/clarkvalberg/studio-concept-film.git
 cd studio-concept-film
 
 # Point Claude at this directory for the session

@@ -57,4 +57,4 @@ This release is deliberately narrow. The skill produces concept films and nothin
 
 ---
 
-[1.0.0]: https://github.com/YOUR_ORG/studio-concept-film/releases/tag/v1.0.0
+[1.0.0]: https://github.com/clarkvalberg/studio-concept-film/releases/tag/v1.0.0
