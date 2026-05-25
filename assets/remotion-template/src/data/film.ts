@@ -1,4 +1,4 @@
-// film.ts — Project-specific data, written by the studio-concept-film skill.
+// film.ts — Project-specific data, written by the studio-video-creator skill.
 //
 // THIS IS THE PLACEHOLDER. The skill replaces this file with project-specific data
 // during Phase 6. Do not edit by hand unless you're iterating on a rendered film.

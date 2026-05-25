@@ -19,8 +19,9 @@ export const CustomerMoment: React.FC<Props> = ({ section }) => {
   const opacity = fadeInHoldOut(frame, totalFrames, 24);
   const scale = section.sceneProps.motion === 'static' ? 1 : slowPushIn(frame, totalFrames);
 
-  const imageSrc = section.sceneProps.imagery
-    ? `/imagery/${section.sceneProps.imagery}.jpg`
+  const imagery = typeof section.sceneProps.imagery === 'string' ? section.sceneProps.imagery : null;
+  const imageSrc = imagery && imagery !== 'placeholder'
+    ? `/imagery/${imagery}.jpg`
     : null;
 
   return (

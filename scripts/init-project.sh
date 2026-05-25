@@ -29,9 +29,11 @@ mkdir -p "$PROJECT_DIR/out"
 scaffold_from_template() {
   echo "→ Copying Remotion template to $PROJECT_DIR/remotion"
   cp -r "$TEMPLATE_DIR" "$PROJECT_DIR/remotion"
+  rm -rf "$PROJECT_DIR/remotion/node_modules"
 
   mkdir -p "$PROJECT_DIR/remotion/public/audio"
   mkdir -p "$PROJECT_DIR/remotion/public/screens"
+  mkdir -p "$PROJECT_DIR/remotion/public/imagery"
   mkdir -p "$PROJECT_DIR/remotion/public/fonts"
 }
 

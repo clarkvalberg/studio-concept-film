@@ -425,7 +425,7 @@ Audience is senior engineers. Tone is confident curiosity — *the film is think
 - Adam — gravitas, the "this is real" register
 - Antoni — peer-to-peer, more conversational; might fit the engineer audience
 - Lily — editorial cadence, slightly cooler
-- Sarah — clear and neutral, lets the argument carry
+- Will — measured and slightly wry, lets the argument carry
 
 Four 12-second audition samples generated via ElevenLabs MCP.
 
@@ -483,4 +483,3 @@ Claude generates the full voiceover from the complete script, runs `scripts/rend
 The variants are not just different content — they're different *shapes*. The skill's job is to pick the right shape based on where the concept's energy lives, then execute that shape with discipline.
 
 Same gates. Same render economics. Different film.
-

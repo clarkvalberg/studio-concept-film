@@ -17,8 +17,9 @@ export const VisionClose: React.FC<Props> = ({ section }) => {
   const { fps } = useVideoConfig();
   const totalFrames = Math.round(section.duration * fps);
 
-  const imageSrc = section.sceneProps.finalImage
-    ? `/imagery/${section.sceneProps.finalImage}.jpg`
+  const finalImage = typeof section.sceneProps.finalImage === 'string' ? section.sceneProps.finalImage : null;
+  const imageSrc = finalImage && finalImage !== 'placeholder'
+    ? `/imagery/${finalImage}.jpg`
     : null;
 
   // Phase 1: image (0% → 65%)

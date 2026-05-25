@@ -16,7 +16,7 @@ jobs:
 
       - name: Build .skill artifact
         run: |
-          zip -rq studio-concept-film.skill . \
+          zip -rq studio-video-creator.skill . \
             -x '.git/*' \
             -x 'node_modules/*' \
             -x '.DS_Store' \
@@ -27,4 +27,4 @@ jobs:
         uses: softprops/action-gh-release@da05d552573ad5aba039eaac05058a918a7bf631 # v2.2.2
         with:
           generate_release_notes: true
-          files: studio-concept-film.skill
+          files: studio-video-creator.skill

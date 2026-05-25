@@ -1,5 +1,5 @@
 ---
-name: studio-concept-film
+name: studio-video-creator
 description: >
   Produce a studio concept film — a 60–90 second voiceover-driven video that introduces
   a product concept, studio project, or early-stage venture. This is the InVision-lineage
@@ -14,7 +14,7 @@ description: >
   explainer videos, demos of existing apps, or long-form content.
 ---
 
-# Studio Concept Film
+# Studio Video Creator
 
 This skill produces a single, well-defined artifact: a **60–90 second concept film** in the InVision-lineage tradition. Voiceover-driven, prototype-grounded, insight-led, aspirational close.
 
@@ -191,6 +191,7 @@ Use the ElevenLabs Player MCP (`ElevenLabs Player:generate_tts`) to play 4 voice
 - Intimate/human-moment → Charlotte, Antoni
 - Authoritative/institutional → Daniel, Lily
 - Warm/optimistic → Rachel, Antoni, Lily
+- Contrarian/thoughtful → Will
 
 Name your reasoning in one line ("Pulling four warm-but-grounded options given this is an LP-facing pitch") then call the TTS tool four times with the first 10–15s of the script and the chosen voice IDs.
 

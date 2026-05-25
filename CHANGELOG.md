@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to `studio-concept-film` are documented here.
+All notable changes to `studio-video-creator` are documented here.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
@@ -57,4 +57,4 @@ This release is deliberately narrow. The skill produces concept films and nothin
 
 ---
 
-[1.0.0]: https://github.com/clarkvalberg/studio-concept-film/releases/tag/v1.0.0
+[1.0.0]: https://github.com/clarkvalberg/studio-video-creator/releases/tag/v1.0.0

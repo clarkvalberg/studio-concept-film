@@ -1,4 +1,4 @@
-// Types — the data contract between the studio-concept-film skill and this template.
+// Types — the data contract between the studio-video-creator skill and this template.
 // The skill writes a FilmData object to src/data/film.ts; this template reads it.
 
 export type Variant = 'customer-led' | 'insight-led' | 'demo-led';

@@ -2,7 +2,7 @@
 
 ## Supported versions
 
-`studio-concept-film` follows semantic versioning. Security fixes are backported to the latest minor release of the current major version.
+`studio-video-creator` follows semantic versioning. Security fixes are backported to the latest minor release of the current major version.
 
 | Version | Supported |
 |---|---|

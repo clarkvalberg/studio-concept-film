@@ -1,6 +1,6 @@
 # Concept Film — Remotion Template
 
-This Remotion project is the rendering layer for the `studio-concept-film` skill. The skill scaffolds it into your project directory and populates two files with project-specific content. You typically don't edit this template by hand.
+This Remotion project is the rendering layer for the `studio-video-creator` skill. The skill scaffolds it into your project directory and populates two files with project-specific content. You typically don't edit this template by hand.
 
 ## What gets injected
 

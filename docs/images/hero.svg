@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 540" width="1280" height="540" role="img" aria-label="studio-concept-film hero">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 540" width="1280" height="540" role="img" aria-label="studio-video-creator hero">
   <defs>
     <linearGradient id="bg-gradient" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="#0A0A0A"/>
@@ -49,7 +49,7 @@
 
     <!-- Title -->
     <text y="-30" font-family="'GT Sectra Display', 'Tiempos Headline', Georgia, 'Times New Roman', serif" font-weight="700" font-size="108" letter-spacing="-0.025em" fill="#F5F5F4">
-      studio-concept-film
+      studio-video-creator
     </text>
 
     <!-- Accent rule -->

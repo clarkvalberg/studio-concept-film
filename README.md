@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="docs/images/hero.svg" alt="studio-concept-film" />
+<img src="docs/images/hero.svg" alt="studio-video-creator" />
 
 <br />
 
@@ -82,12 +82,12 @@ The hook render is the iteration unit. The full render is the publication unit. 
 
 **Option A — `.skill` file (recommended):**
 
-Download [`studio-concept-film.skill`](https://github.com/clarkvalberg/studio-concept-film/releases) from the latest release and load it into Claude per [these instructions](docs/INSTALLATION.md).
+Download [`studio-video-creator.skill`](https://github.com/clarkvalberg/studio-video-creator/releases) from the latest release and load it into Claude per [these instructions](docs/INSTALLATION.md).
 
 **Option B — clone and link:**
 
 ```bash
-git clone https://github.com/clarkvalberg/studio-concept-film.git ~/.claude/skills/studio-concept-film
+git clone https://github.com/clarkvalberg/studio-video-creator.git ~/.claude/skills/studio-video-creator
 ```
 
 (See [INSTALLATION.md](docs/INSTALLATION.md) for environment-specific paths.)
@@ -135,7 +135,7 @@ A curated ElevenLabs shortlist. Choice paralysis kills the workflow; curation is
 | **Brian** | Confident American narrator male | Cinematic, brand-launch register |
 | **Lily** | Warm British female | Documentary cadence, editorial sensibility |
 | **Daniel** | British authority male | Weighty, regulated industries |
-| **Sarah** | Clear neutral female | Demo-led films where clarity beats emotion |
+| **Will** | Measured thoughtful male | Insight-led films with a contrarian or sophisticated thesis |
 
 Full personas and matching matrix in [`references/voice-shortlist.md`](references/voice-shortlist.md).
 
@@ -164,7 +164,7 @@ The intent here is to make that register repeatable.
 ## Repository
 
 ```
-studio-concept-film/
+studio-video-creator/
 ├── SKILL.md                      ← the operating manual (Claude reads this)
 ├── references/                   ← deep guidance loaded by phase
 │   ├── frameworks.md             ← the canonical structure + 3 variants

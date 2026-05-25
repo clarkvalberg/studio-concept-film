@@ -2,7 +2,7 @@
 .PHONY: help init audition voiceover voiceover-hook hook full preview lint typecheck shellcheck clean release-skill
 
 # ──────────────────────────────────────────────────────────────────
-#  studio-concept-film  ·  ergonomic command surface
+#  studio-video-creator  ·  ergonomic command surface
 #
 #  Most targets take PROJECT=<dir> as an argument:
 #      make hook PROJECT=~/concepts/harmony
@@ -14,7 +14,7 @@ PROJECT ?=
 
 help: ## Show this help
 	@echo ""
-	@echo "  studio-concept-film  ·  v1.0.0"
+	@echo "  studio-video-creator  ·  v1.0.0"
 	@echo "  ────────────────────────────────────────────────────"
 	@echo ""
 	@echo "  Usage: make <target> [PROJECT=<path-to-project>]"
@@ -77,20 +77,19 @@ clean: ## Remove rendered output and caches (does not affect projects)
 
 # ── release ────────────────────────────────────────────────────────
 
-release-skill: ## Build studio-concept-film.skill from the current repo state
+release-skill: ## Build studio-video-creator.skill from the current repo state
 	@echo "→ packaging .skill file"
 	@command -v zip >/dev/null 2>&1 || { echo "  ✗ zip not installed"; exit 1; }
-	@rm -f studio-concept-film.skill
-	@( \
-		cd .. && \
-		zip -rq studio-concept-film/studio-concept-film.skill studio-concept-film/ \
-		-x 'studio-concept-film/.git/*' \
-		-x 'studio-concept-film/node_modules/*' \
-		-x 'studio-concept-film/**/node_modules/*' \
-		-x 'studio-concept-film/.DS_Store' \
-		-x 'studio-concept-film/studio-concept-film.skill' \
-	)
-	@echo "  ✓ studio-concept-film.skill"
+	@rm -f studio-video-creator.skill
+	@zip -rq studio-video-creator.skill . \
+		-x '.git/*' \
+		-x 'node_modules/*' \
+		-x '**/node_modules/*' \
+		-x '.DS_Store' \
+		-x 'studio-video-creator.skill' \
+		-x '*.mp4' \
+		-x '*.mp3'
+	@echo "  ✓ studio-video-creator.skill"
 
 # ── internal ───────────────────────────────────────────────────────
 
