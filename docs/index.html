@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Signatures.law Example | Studio Video Creator</title>
+    <meta
+      name="description"
+      content="Playable Signatures.law reference film for the Studio Video Creator skill."
+    />
+    <meta property="og:title" content="Signatures.law Example | Studio Video Creator" />
+    <meta
+      property="og:description"
+      content="Playable Signatures.law reference film for the Studio Video Creator skill."
+    />
+    <meta property="og:type" content="video.other" />
+    <meta property="og:video" content="media/signatures-law-final-2026-05-25.mp4" />
+    <meta property="og:image" content="media/signatures-law-poster.jpg" />
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f6f2eb;
+        --ink: #181713;
+        --muted: #6a635a;
+        --line: #d7cec0;
+        --accent: #2e6f5e;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: var(--bg);
+        color: var(--ink);
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", sans-serif;
+      }
+
+      main {
+        width: min(1120px, calc(100vw - 40px));
+        margin: 0 auto;
+        padding: 32px 0 48px;
+      }
+
+      header {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 24px;
+        margin-bottom: 18px;
+        border-bottom: 1px solid var(--line);
+        padding-bottom: 16px;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(28px, 4vw, 52px);
+        line-height: 1;
+        font-weight: 720;
+        letter-spacing: 0;
+      }
+
+      p {
+        margin: 8px 0 0;
+        color: var(--muted);
+        font-size: 16px;
+        line-height: 1.5;
+      }
+
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 10px;
+      }
+
+      a {
+        color: var(--accent);
+        font-weight: 650;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      video {
+        display: block;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        background: #111;
+        border: 1px solid var(--line);
+      }
+
+      .meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 18px;
+        margin-top: 12px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      @media (max-width: 720px) {
+        main {
+          width: min(100vw - 24px, 1120px);
+          padding-top: 18px;
+        }
+
+        header {
+          display: block;
+        }
+
+        nav {
+          justify-content: flex-start;
+          margin-top: 14px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <div>
+          <h1>Signatures.law Example</h1>
+          <p>Reference film for the Studio Video Creator skill, with Brian as voiceover.</p>
+        </div>
+        <nav aria-label="Example links">
+          <a href="https://github.com/clarkvalberg/studio-video-creator/blob/main/docs/EXAMPLES.md">Read the workflow</a>
+          <a href="media/signatures-law-final-2026-05-25.mp4">Open MP4</a>
+        </nav>
+      </header>
+
+      <video
+        controls
+        preload="metadata"
+        poster="media/signatures-law-poster.jpg"
+        src="media/signatures-law-final-2026-05-25.mp4"
+      >
+        <a href="media/signatures-law-final-2026-05-25.mp4">
+          Watch the Signatures.law example video
+        </a>
+      </video>
+
+      <div class="meta">
+        <span>Length: 1:21</span>
+        <span>Format: MP4</span>
+        <span>Voiceover: Brian</span>
+      </div>
+    </main>
+  </body>
+</html>

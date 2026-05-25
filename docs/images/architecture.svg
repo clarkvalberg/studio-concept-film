@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 420" width="1280" height="420" role="img" aria-label="studio-video-creator architecture">
+  <defs>
+    <style>
+      .label  { font-family: 'Inter', system-ui, sans-serif; font-size: 13px; fill: #1A1614; font-weight: 500; }
+      .mono   { font-family: ui-monospace, 'JetBrains Mono', monospace; font-size: 11px; fill: #6B6B6B; letter-spacing: 0.08em; }
+      .title  { font-family: 'Inter', system-ui, sans-serif; font-size: 14px; font-weight: 600; fill: #1A1614; }
+      .sub    { font-family: 'Inter', system-ui, sans-serif; font-size: 11px; fill: #6B6B6B; }
+      .box    { fill: #FFFFFF; stroke: #E5E2DC; stroke-width: 1; }
+      .box-accent { fill: #FAF7F2; stroke: #C68B3C; stroke-width: 1.5; }
+      .arrow  { stroke: #1A1614; stroke-width: 1.5; fill: none; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#1A1614"/>
+    </marker>
+  </defs>
+
+  <rect width="1280" height="420" fill="#F4EFE6"/>
+
+  <!-- Top label -->
+  <text x="640" y="40" text-anchor="middle" class="mono" letter-spacing="0.32em">DATA FLOW</text>
+
+  <!-- Inputs column -->
+  <g transform="translate(60, 80)">
+    <text class="mono" letter-spacing="0.18em" y="0">01 · INPUTS</text>
+    <rect class="box" x="0" y="20" width="200" height="240" rx="6"/>
+    <g transform="translate(20, 50)">
+      <text class="title" y="0">Source material</text>
+      <text class="sub" y="22">Concept brief (PDF/MD)</text>
+      <text class="sub" y="42">Prototype (Figma / URL)</text>
+      <text class="sub" y="62">Deck (PPTX / PDF)</text>
+      <text class="sub" y="82">Website</text>
+      <text class="sub" y="102">Free-form description</text>
+      <text class="sub" y="142" font-style="italic">User decides what's available.</text>
+      <text class="sub" y="162" font-style="italic">Skill adapts.</text>
+    </g>
+  </g>
+
+  <!-- Arrow 1 -->
+  <line class="arrow" x1="270" y1="200" x2="318" y2="200" marker-end="url(#arrowhead)"/>
+
+  <!-- Skill column -->
+  <g transform="translate(328, 80)">
+    <text class="mono" letter-spacing="0.18em" y="0">02 · THE SKILL</text>
+    <rect class="box-accent" x="0" y="20" width="280" height="240" rx="6"/>
+    <g transform="translate(20, 50)">
+      <text class="title" y="0">Gated workflow</text>
+      <text class="sub" y="22">1. Intake + legibility gate</text>
+      <text class="sub" y="42">2. Three sharp questions</text>
+      <text class="sub" y="62">3. Variant pick + script</text>
+      <text class="sub" y="82">3B. Motion board</text>
+      <text class="sub" y="102">4. Design + cover frame</text>
+      <text class="sub" y="122">5. Voice audition (4 of 8)</text>
+      <text class="sub" y="142">6. Hook render (15s)</text>
+      <text class="sub" y="162">7. Iterate → full render</text>
+      <text class="sub" y="180" font-style="italic">Each phase is a gate.</text>
+    </g>
+  </g>
+
+  <!-- Arrow 2 -->
+  <line class="arrow" x1="618" y1="200" x2="666" y2="200" marker-end="url(#arrowhead)"/>
+
+  <!-- Project artifacts column -->
+  <g transform="translate(676, 80)">
+    <text class="mono" letter-spacing="0.18em" y="0">03 · ARTIFACTS</text>
+    <rect class="box" x="0" y="20" width="240" height="240" rx="6"/>
+    <g transform="translate(20, 50)">
+      <text class="title" y="0">In your project/</text>
+      <text class="sub" y="22" font-family="ui-monospace, monospace">brief.md</text>
+      <text class="sub" y="42" font-family="ui-monospace, monospace">script.md</text>
+      <text class="sub" y="62" font-family="ui-monospace, monospace">motion-board.md</text>
+      <text class="sub" y="82" font-family="ui-monospace, monospace">design.md</text>
+      <text class="sub" y="102" font-family="ui-monospace, monospace">voice.json</text>
+      <text class="sub" y="122" font-family="ui-monospace, monospace">remotion/</text>
+      <text class="sub" y="142" font-family="ui-monospace, monospace">out/design-thumbnail.png</text>
+      <text class="sub" y="162" font-family="ui-monospace, monospace">out/cover-frame.png</text>
+      <text class="sub" y="190" font-style="italic">Re-renderable. Editable.</text>
+    </g>
+  </g>
+
+  <!-- Arrow 3 -->
+  <line class="arrow" x1="926" y1="200" x2="974" y2="200" marker-end="url(#arrowhead)"/>
+
+  <!-- Output column -->
+  <g transform="translate(984, 80)">
+    <text class="mono" letter-spacing="0.18em" y="0">04 · OUTPUT</text>
+    <rect class="box" x="0" y="20" width="240" height="240" rx="6"/>
+    <g transform="translate(20, 50)">
+      <text class="title" y="0">Rendered outputs</text>
+      <text class="sub" y="22" font-family="ui-monospace, monospace">out/cover-frame.png</text>
+      <text class="sub" y="38" font-family="ui-monospace, monospace" font-size="10">poster / preview</text>
+      <text class="sub" y="68" font-family="ui-monospace, monospace">out/hook.mp4</text>
+      <text class="sub" y="84" font-family="ui-monospace, monospace" font-size="10">~15s · for iteration</text>
+      <text class="sub" y="114" font-family="ui-monospace, monospace">out/final.mp4</text>
+      <text class="sub" y="130" font-family="ui-monospace, monospace" font-size="10">60–90s · 1080p</text>
+      <text class="sub" y="164" font-style="italic">Ship it.</text>
+    </g>
+  </g>
+
+  <!-- Bottom note -->
+  <g transform="translate(640, 380)" text-anchor="middle">
+    <text class="mono" letter-spacing="0.12em" fill="#6B6B6B">CLAUDE  /  REMOTION  /  ELEVENLABS  /  MOBBIN</text>
+  </g>
+</svg>

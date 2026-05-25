@@ -1,0 +1,21 @@
+{
+  "ignorePatterns": [
+    {
+      "pattern": "^https?://github.com/clarkvalberg"
+    },
+    {
+      "pattern": "^https?://transformative.studio"
+    },
+    {
+      "pattern": "^https?://twitter.com/transformative"
+    },
+    {
+      "pattern": "^releases"
+    }
+  ],
+  "timeout": "20s",
+  "retryOn429": true,
+  "retryCount": 3,
+  "fallbackRetryDelay": "30s",
+  "aliveStatusCodes": [200, 206]
+}
