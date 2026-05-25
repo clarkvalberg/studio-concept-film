@@ -194,25 +194,25 @@ export const motion = {
 
 The Remotion scenes import these tokens — they don't hard-code timings. Keep that contract.
 
-## Using the Mobbin MCP (when available)
+## Using UI reference sources (when available)
 
-If `Mobbin:search_screens` is connected, use it to ground design proposals in real-world references. This is especially useful in Path 2 (no brand) to make abstract directions concrete.
+If Mobbin, Refero, or another UI reference source is connected, use it to ground design proposals in real-world references. This is especially useful in Path 2 (no brand) to make abstract directions concrete.
 
 ### How to query
 
-For each direction you're proposing, run 1–2 Mobbin queries that capture the *feeling* not the *content*:
+For each direction you're proposing, run 1–2 UI-reference queries that capture the *feeling* not the *content*:
 
 - *"editorial onboarding screen serif typography warm background"*
 - *"financial dashboard utilitarian dense data table single accent color"*
 - *"healthcare app patient view warm intimate imagery"*
 
-Pick 2–3 strong references per direction. In the design.md, link them or note them ("Mobbin ref: [product name], onboarding flow").
+Pick 2–3 strong references per direction. In the design.md, link them or note them ("Reference: [product name], onboarding flow").
 
-### When to skip Mobbin
+### When to skip external references
 
 - The brand already exists; references are unnecessary
 - The user explicitly knows what they want
-- Mobbin isn't connected — don't break flow chasing it; the typography/color/motion tokens alone are sufficient
+- No UI-reference source is connected — don't break flow chasing it; the typography/color/motion tokens alone are sufficient
 
 ## When the user pushes back on the proposal
 

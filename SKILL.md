@@ -166,7 +166,7 @@ Two paths:
 
 **If the brand exists** (logo, deployed site, established palette in the inputs): extract the brand. Identify typography, color, tone of imagery, motion sensibility. Document it in `design.md`.
 
-**If the brand does not exist yet** (early concept): propose two directions. Each direction is a one-paragraph description plus three Mobbin references. Use the Mobbin MCP if available to fetch real inspiration screens. Read `references/design-language.md` for how to query Mobbin effectively and how to structure the proposal.
+**If the brand does not exist yet** (early concept): propose two directions. Each direction is a one-paragraph description plus three concrete UI references. Use Mobbin, Refero, or an equivalent UI reference source if available to fetch real inspiration screens. Read `references/design-language.md` for how to query references effectively and how to structure the proposal.
 
 Either way, end with concrete tokens recorded in `design.md`:
 
@@ -259,7 +259,7 @@ When you need depth, read the relevant subfile. Do not load these preemptively �
 | `references/intake-checklist.md` | Phase 1 — comprehensive intake guidance per input type |
 | `references/frameworks.md` | Phase 3 — full structural templates, variant deep-dives, worked examples |
 | `references/script-rules.md` | Phase 3 — voice, pacing, vocabulary, do/don't, common failure modes |
-| `references/design-language.md` | Phase 4 — Mobbin querying, brand extraction, token specification |
+| `references/design-language.md` | Phase 4 — UI reference querying, brand extraction, token specification |
 | `references/voice-shortlist.md` | Phase 5 — the 8 curated voices with IDs, personas, when to pick each |
 | `references/remotion-integration.md` | Phase 6/7 — file layout, data shape, render commands, debugging |
 | `references/example-harmony.md` | Anytime — worked example walking through a real concept-film run |

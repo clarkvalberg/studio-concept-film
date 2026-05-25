@@ -73,13 +73,13 @@ The skill picks one silently based on signals in the brief, then names the choic
 **Two paths:**
 
 - **If the brand exists** (live product, established palette): Claude extracts it. Typography, color, motion sensibility, imagery direction.
-- **If the brand doesn't exist yet**: Claude proposes two named directions, each with a one-paragraph description and three Mobbin references (Editorial · Architectural · Documentary · Optimistic · Minimal-luxury).
+- **If the brand doesn't exist yet**: Claude proposes two named directions, each with a one-paragraph description and three concrete UI references from Mobbin, Refero, or an equivalent source (Editorial · Architectural · Documentary · Optimistic · Minimal-luxury).
 
 The user picks. The chosen direction is recorded as concrete tokens in `design.md` — typefaces with weights, colors with hex values, motion principles with timing ranges, imagery direction. These tokens flow directly into the Remotion template.
 
 **Gate clears when:** `design.md` exists with concrete tokens.
 
-See [`references/design-language.md`](../references/design-language.md) for Mobbin querying patterns and direction archetypes.
+See [`references/design-language.md`](../references/design-language.md) for UI-reference querying patterns and direction archetypes.
 
 <br />
 

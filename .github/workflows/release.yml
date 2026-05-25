@@ -19,6 +19,7 @@ jobs:
           zip -rq studio-video-creator.skill . \
             -x '.git/*' \
             -x 'node_modules/*' \
+            -x '**/node_modules/*' \
             -x '.DS_Store' \
             -x '*.mp4' \
             -x '*.mp3'

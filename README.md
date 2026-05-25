@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="docs/images/hero.svg" alt="studio-video-creator" />
+<img src="docs/images/hero.png" alt="Studio Video Creator" />
 
 <br />
 
@@ -61,7 +61,7 @@ Seven phases. Each one is a gate.
 | 1 | **Intake** | Claude reads everything you provide and produces a two-sentence concept summary. | You confirm or correct. |
 | 2 | **Three sharp questions** | Audience, single insight, vision statement. Skipped if the source answers them. | Brief assembled. |
 | 3 | **Variant + script** | Picks one of three structural variants (customer-led / insight-led / demo-led) and writes a 60–90s script. | Script drafted. |
-| 4 | **Design direction** | Extracts the brand from inputs or proposes two named directions with real Mobbin references. | Design locked. |
+| 4 | **Design direction** | Extracts the brand from inputs or proposes two named directions grounded in real UI references. | Design locked. |
 | 5 | **Voice audition** | Four voices from a curated shortlist of eight, each reading the first 10 seconds. | Voice selected. |
 | 6 | **Hook render** | The first ~15 seconds are rendered for fast iteration. | Hook delivered. |
 | 7 | **Iterate → full render** | Conversational edits. Then the full film. | Film complete. |
@@ -161,6 +161,20 @@ The intent here is to make that register repeatable.
 
 <br />
 
+## Roadmap
+
+The first release stays deliberately narrow: 60–90 second concept films with a gated hook-render loop. The broader `studio-video-creator` direction is a family of short studio-grade product videos built from the same craft system:
+
+- **Concept film** — current format; source material becomes a voiceover-led pitch film
+- **Launch teaser** — shorter public-facing reveal for a product or studio project
+- **Investor narrative** — LP/fundraising cut with sharper market and thesis beats
+- **Demo montage** — screen-forward product walkthrough with less narration
+- **Internal alignment film** — strategy narrative for teams before build or launch
+
+New formats should add structure without diluting the existing concept-film workflow.
+
+<br />
+
 ## Repository
 
 ```
@@ -170,7 +184,7 @@ studio-video-creator/
 │   ├── frameworks.md             ← the canonical structure + 3 variants
 │   ├── script-rules.md           ← voice, pacing, banned words
 │   ├── voice-shortlist.md        ← the 8 voices with IDs and fit notes
-│   ├── design-language.md        ← Mobbin querying, brand extraction
+│   ├── design-language.md        ← UI references, brand extraction
 │   ├── intake-checklist.md       ← what to extract per input type
 │   ├── remotion-integration.md   ← file layout, data shape, render specs
 │   └── example-harmony.md        ← a complete worked example

@@ -52,3 +52,33 @@ jobs:
           use-verbose-mode: "no"
           config-file: ".github/markdown-link-check.json"
         continue-on-error: true
+
+  smoke-render:
+    name: smoke-render
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Setup Node
+        uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af # v4.1.0
+        with:
+          node-version: "20"
+
+      - name: Install ffmpeg
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+
+      - name: Render silent hook
+        run: |
+          project="$(mktemp -d)"
+          ./scripts/init-project.sh "$project"
+          ffmpeg -y \
+            -f lavfi \
+            -i anullsrc=channel_layout=stereo:sample_rate=44100 \
+            -t 15 \
+            -q:a 9 \
+            -acodec libmp3lame \
+            "$project/remotion/public/audio/hook.mp3"
+          ./scripts/render-hook.sh "$project"
+          test -s "$project/out/hook.mp4"

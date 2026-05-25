@@ -16,7 +16,7 @@ Before installing, make sure you have:
 
 Optional but recommended:
 
-- **Mobbin MCP** — for design-direction inspiration in Phase 4
+- **Mobbin, Refero, or another UI reference source** — for design-direction inspiration in Phase 4
 - **`ffmpeg`** — for audio duration measurement during scene-timing alignment
 - **`jq`** — used by the helper bash scripts for JSON parsing
 
