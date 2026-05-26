@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <link rel="icon" href="data:," />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <script src="../data/generated.js"></script>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <div
+      id="studio-hook"
+      data-composition-id="hook"
+      data-mode="hook"
+      data-start="0"
+      data-duration="15"
+      data-width="1920"
+      data-height="1080"
+    >
+      <!-- studio-audio:start --><!-- studio-audio:end -->
+    </div>
+    <script src="../scripts/studio-composition.js"></script>
+    <script>
+      window.__timelines = window.__timelines || {};
+      window.__timelines["hook"] = window.__studioTimeline;
+    </script>
+  </body>
+</html>

@@ -2,7 +2,7 @@
 
 The most common failure mode of a concept film isn't bad copy or bad design — it's audio and visuals that don't move together. This file is the operating manual for keeping them locked.
 
-Read this before writing `film.ts` section timings, and again during render review.
+Read this before writing `film.json` section timings, and again during render review.
 
 ---
 
@@ -10,10 +10,10 @@ Read this before writing `film.ts` section timings, and again during render revi
 
 The audio is the spine. Everything else accommodates it.
 
-- **Measure actual TTS audio duration with `scripts/measure-audio.sh` BEFORE writing `film.ts` section timings.** Word-count estimates lie — voice pacing, phrasing pauses, and model-specific cadence all push the real duration off the estimate by 10–25%.
-- **Section durations in `film.ts` must match actual audio length, not estimated word-count timing.** Render the TTS first, measure it, then write the section blocks against the measured beats.
-- **If TTS runs longer than estimated, adjust `film.ts` — never speed up or compress the audio.** Time-stretching destroys voice quality and breaks the warm-confident register that the genre depends on. Lengthen the section, hold the visual longer, or trim the script.
-- **Update `meta.totalDuration` to equal the sum of section durations every time you adjust.** Remotion derives composition length from this value; a mismatch truncates or pads the render.
+- **Measure actual TTS audio duration with `scripts/measure-audio.sh` BEFORE writing `film.json` section timings.** Word-count estimates lie — voice pacing, phrasing pauses, and model-specific cadence all push the real duration off the estimate by 10–25%.
+- **Section durations in `film.json` must match actual audio length, not estimated word-count timing.** Render the TTS first, measure it, then write the section blocks against the measured beats.
+- **If TTS runs longer than estimated, adjust `film.json` — never speed up or compress the audio.** Time-stretching destroys voice quality and breaks the warm-confident register that the genre depends on. Lengthen the section, hold the visual longer, or trim the script.
+- **Update `meta.totalDuration` to equal the sum of section durations every time you adjust.** HyperFrames derives composition length from this value; a mismatch truncates or pads the render.
 - **One audio file per composition.** Hook uses `public/audio/hook.mp3`; Full uses `public/audio/voiceover.mp3`. Don't try to stitch per-section clips at render time — gaps and click artifacts will show up.
 
 ## 2. Visual beat alignment
@@ -60,4 +60,4 @@ If you can name the failure, you can fix it at the data layer instead of re-rend
 
 ---
 
-When in doubt: render the hook, watch it once at 1x speed without touching the timeline, and ask "did anything feel late, early, or dead?" If the answer is yes, fix it in `film.ts` and re-render. The sync problems are always in the data, not in the template.
+When in doubt: render the hook, watch it once at 1x speed without touching the timeline, and ask "did anything feel late, early, or dead?" If the answer is yes, fix it in `film.json` and re-render. The sync problems are always in the data, not in the template.

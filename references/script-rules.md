@@ -100,7 +100,7 @@ These are banned not because they're meaningless but because they're *exhausted*
 
 ## Visual instructions in the script
 
-Every section of the script has both VO (voiceover) and an on-screen direction. The on-screen direction is for the Remotion template — keep it concrete enough that a scene can be built from it.
+Every section of the script has both VO (voiceover) and an on-screen direction. The on-screen direction is for the HyperFrames template — keep it concrete enough that a scene can be built from it.
 
 **Format:**
 
@@ -119,7 +119,7 @@ The on-screen direction should suggest:
 - Movement (still, slow push, cut)
 - Any kinetic typography or UI overlay
 
-You don't have to write cinematography poetry. Just enough that the Remotion scene can be filled with intent, not guesswork.
+You don't have to write cinematography poetry. Just enough that the HyperFrames scene can be filled with intent, not guesswork.
 
 ## Section-by-section guidance
 

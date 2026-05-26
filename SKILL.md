@@ -65,7 +65,7 @@ By the end of a complete run, the user has, in their project directory:
 ├── motion-board.md    — beat-by-beat visual causality plan
 ├── design.md          — chosen visual/motion language, brand interpretation, cover strategy
 ├── voice.json         — selected ElevenLabs voice ID + audition notes
-├── remotion/          — full Remotion project, scenes filled with project content
+├── hyperframes/       — full HyperFrames project, scenes filled with project content
 │   ├── package.json
 │   ├── src/
 │   └── public/
@@ -223,17 +223,17 @@ Either way, end with concrete tokens recorded in `design.md`:
 
 Also define the **cover frame strategy** in `design.md`. Read `references/cover-frame-strategy.md` if the best first frame is not obvious. Choose the archetype (title-card / product-first / human-moment / thesis), describe the actual frame-0 image, specify any on-screen text, and state why it still reads silently at small size.
 
-These tokens flow into the Remotion template.
+These tokens flow into the HyperFrames template.
 
 **Thumbnail artifact:**
 
 1. Run `scripts/init-project.sh <project>` if the project has not already been initialized.
-2. Write the chosen tokens to `<project>/remotion/src/compositions/shared/BrandTokens.ts`.
+2. Write the chosen tokens to `<project>/hyperframes/data/tokens.json`.
 3. Add the cover frame strategy to `design.md`.
-4. Write or update placeholder `<project>/remotion/src/data/film.ts` with the project name, chosen variant, first script lines, vision-close tagline, and frame-0 cover intent. It only needs enough content for the thumbnail.
+4. Write or update placeholder `<project>/hyperframes/data/film.json` with the project name, chosen variant, first script lines, vision-close tagline, and frame-0 cover intent. It only needs enough content for the thumbnail.
 5. Run `scripts/render-design-thumbnail.sh <project>`.
 6. Present `<project>/out/design-thumbnail.png` to the user.
-7. If the user gives aesthetic feedback, update `design.md` and `BrandTokens.ts`, then re-render `design-thumbnail.png`. Repeat until the user approves.
+7. If the user gives aesthetic feedback, update `design.md` and `tokens.json`, then re-render `design-thumbnail.png`. Repeat until the user approves.
 
 The thumbnail should feel like the film's opening title card or a representative style frame: type, palette, screen treatment, spacing, and tone in one glance. It is not final film content; it is the design decision made visible.
 
@@ -278,14 +278,14 @@ This is the critical UX moment. Do NOT render the full 90s film yet. Render only
 
 **Steps:**
 
-1. Run `scripts/init-project.sh` to copy the Remotion template from `assets/remotion-template/` into `<project>/remotion/` if Phase 4 did not already initialize it.
-2. Generate the project's content files — populate scene props, design tokens, script timing, and motion-board intent — by writing to `<project>/remotion/src/data/`. See `references/remotion-integration.md` for the exact file layout the template expects.
-3. Generate the voiceover audio for the hook section via ElevenLabs (full TTS call with the selected voice_id and the hook script). Save to `<project>/remotion/public/audio/hook.mp3`.
-4. Run `scripts/render-hook.sh <project>` which calls Remotion to render the Hook composition and export frame 0 as `<project>/out/cover-frame.png`.
+1. Run `scripts/init-project.sh` to copy the HyperFrames template from `assets/hyperframes-template/` into `<project>/hyperframes/` if Phase 4 did not already initialize it.
+2. Generate the project's content files — populate scene props, design tokens, script timing, and motion-board intent — by writing to `<project>/hyperframes/data/film.json` and `<project>/hyperframes/data/tokens.json`. See `references/hyperframes-integration.md` for the exact file layout the template expects.
+3. Generate the voiceover audio for the hook section via ElevenLabs (full TTS call with the selected voice_id and the hook script). Save to `<project>/hyperframes/public/audio/hook.mp3`.
+4. Run `scripts/render-hook.sh <project>` which calls HyperFrames to render the Hook composition and export frame 0 as `<project>/out/cover-frame.png`.
 5. Communicate render time honestly ("This will take ~2–4 minutes depending on hardware"). Don't pretend it's instant.
-6. Inspect `<project>/out/cover-frame.png` before presenting. It must work as a silent poster frame at small size: not blank, not loading, not dependent on VO, and aligned with the film's promise. If it fails, adjust the cold open in `film.ts` or the tokens and re-render.
-7. Run `scripts/check-static-video.sh <project>/out/hook.mp4`. If it flags unplanned freeze spans, revise `film.ts` or add the needed scene component and re-render.
-8. Inspect the hook as an explainer before presenting it: with audio muted, does a meaningful state change happen in the first 10-15 seconds? Does the product, object, or user action cause that change? If it feels like a held slide under VO, revise `film.ts` or add the needed scene component and re-render.
+6. Inspect `<project>/out/cover-frame.png` before presenting. It must work as a silent poster frame at small size: not blank, not loading, not dependent on VO, and aligned with the film's promise. If it fails, adjust the cold open in `film.json` or the tokens and re-render.
+7. Run `scripts/check-static-video.sh <project>/out/hook.mp4`. If it flags unplanned freeze spans, revise `film.json` or add the needed scene treatment and re-render.
+8. Inspect the hook as an explainer before presenting it: with audio muted, does a meaningful state change happen in the first 10-15 seconds? Does the product, object, or user action cause that change? If it feels like a held slide under VO, revise `film.json` or add the needed scene treatment and re-render.
 9. Present `out/cover-frame.png` and `out/hook.mp4` to the user.
 
 End Phase 6 with: `Hook delivered. → Phase 7: iterate or render full.`
@@ -305,7 +305,7 @@ For each edit, identify the smallest re-render needed (hook only? specific scene
 
 **When the user is ready** ("looks good, render the whole thing" / "let's go full"):
 
-1. Generate full voiceover audio (`<project>/remotion/public/audio/voiceover.mp3`)
+1. Generate full voiceover audio (`<project>/hyperframes/public/audio/voiceover.mp3`)
 2. Run `scripts/render-full.sh <project>`
 3. Communicate the expected time (~5–10 minutes for a 90s film at 1080p)
 4. Present `out/final.mp4`
@@ -327,7 +327,7 @@ When you need depth, read the relevant subfile. Do not load these preemptively �
 | `references/design-language.md` | Phase 4 — UI reference querying, brand extraction, token specification |
 | `references/cover-frame-strategy.md` | Phase 4/6 — cover/poster-frame archetypes and review checklist |
 | `references/voice-shortlist.md` | Phase 5 — the 8 curated voices with IDs, personas, when to pick each |
-| `references/remotion-integration.md` | Phase 6/7 — file layout, data shape, render commands, debugging |
+| `references/hyperframes-integration.md` | Phase 6/7 — file layout, data shape, render commands, debugging |
 | `references/example-signatures-law.md` | Anytime — worked example walking through a real concept-film run |
 
 ## Scripts and tools
@@ -336,7 +336,7 @@ The skill ships with a set of executable scripts in `scripts/`. Use them rather 
 
 | Script | Purpose | When to run |
 |---|---|---|
-| `scripts/init-project.sh <project>` | Scaffold a new project directory (copies Remotion template, installs deps, creates placeholder files) | Phase 4 before thumbnail render; Phase 6 only if not already initialized |
+| `scripts/init-project.sh <project>` | Scaffold a new project directory (copies HyperFrames template and creates placeholder files) | Phase 4 before thumbnail render; Phase 6 only if not already initialized |
 | `scripts/audition.sh --script TEXT --voices NAMES --output DIR` | Generate ElevenLabs voice samples via direct API (fallback when ElevenLabs MCP isn't available). Produces MP3s + an `index.html` audition page. | Phase 5, only if MCP unavailable |
 | `scripts/render-design-thumbnail.sh <project>` | Render the Phase 4 design thumbnail to `<project>/out/design-thumbnail.png`. | Phase 4, before voice audition |
 | `scripts/generate-voiceover.sh <project> [--hook-only]` | Generate voiceover MP3 for a project's script using the voice_id in `voice.json`. Use `--hook-only` for hook render. | Phase 6 (hook), Phase 7 (full) |
@@ -350,9 +350,9 @@ The skill ships with a set of executable scripts in `scripts/`. Use them rather 
 - `audition.sh`, `generate-voiceover.sh`: require `ELEVENLABS_API_KEY` env var, `curl`, `jq`
 - `measure-audio.sh`: requires `ffprobe` (from ffmpeg)
 - `check-static-video.sh`: requires `ffmpeg`
-- `render-*.sh`: require Node.js 18+ in `<project>/remotion/`
+- `render-*.sh`: require Node.js 22+ and FFmpeg in `<project>/hyperframes/`
 
-**Preferred path when ElevenLabs MCP is available** (Clark's environment): use `ElevenLabs Player:generate_tts` for inline audition playback in Phase 5. Use `scripts/generate-voiceover.sh` for the actual MP3 files that feed Remotion (it produces the audio at the path the Remotion template expects).
+**Preferred path when ElevenLabs MCP is available** (Clark's environment): use `ElevenLabs Player:generate_tts` for inline audition playback in Phase 5. Use `scripts/generate-voiceover.sh` for the actual MP3 files that feed HyperFrames (it produces the audio at the path the HyperFrames template expects).
 
 ---
 
@@ -390,13 +390,13 @@ These principles keep the output consistent. Treat them as operating constraints
 
 ## Recovery patterns
 
-**No prototype provided.** Generate schematic representations in the Remotion scenes — clean wireframe-style screens that convey the ontology without pretending to be the real product. Note the constraint in `brief.md`: "Schematic screens used; real prototype to swap in for final render."
+**No prototype provided.** Generate schematic representations in the HyperFrames scenes — clean wireframe-style screens that convey the ontology without pretending to be the real product. Note the constraint in `brief.md`: "Schematic screens used; real prototype to swap in for final render."
 
 **Concept summary fails (Phase 1 gate).** Restate what you can extract and ask: "I can see [X, Y]. I can't tell [the key thing]. What am I missing?" Do not loop in the dark. One direct question, then proceed when answered.
 
 **User wants something the framework can't handle** (e.g., a 5-minute video, an ad, a tutorial). Surface the mismatch in one line: "This wants to be a different format than the concept film — I'm built for ~60–90s pitch films. Want to proceed in this format or switch to something else?"
 
-**Render fails.** Read the Remotion error. Common causes: missing audio file, malformed prop, oversized asset. Fix at the source (the data file), don't fork the template.
+**Render fails.** Read the HyperFrames error. Common causes: missing audio file, malformed JSON, oversized asset, or a missing static timeline registration. Fix at the source (the data file), don't fork the template.
 
 **User asks for a voice not in the shortlist.** Offer to add it for this project only, with a one-line caveat: "I'm using a curated shortlist for consistency — happy to use [voice] just for this film. Do you want me to add it to your default shortlist for future runs as well?"
 

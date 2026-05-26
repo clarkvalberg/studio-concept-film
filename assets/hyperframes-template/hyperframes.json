@@ -1,0 +1,10 @@
+{
+  "name": "studio-concept-film",
+  "version": "1.0.0",
+  "compositions": [
+    "index.html",
+    "compositions/design-thumbnail.html",
+    "compositions/hook.html",
+    "compositions/full.html"
+  ]
+}

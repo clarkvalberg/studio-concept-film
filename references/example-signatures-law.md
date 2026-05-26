@@ -168,7 +168,7 @@ The user chose **Brian**.
 
 ## Phase 6 — Hook and render iteration
 
-The skill scaffolded the Remotion project, wrote the film data, generated section audio, and rendered the hook.
+The skill scaffolded the HyperFrames project, wrote the film data, generated section audio, and rendered the hook.
 
 The first hook proved the brand direction but not the explainer grammar. The user pushed:
 
@@ -190,7 +190,7 @@ The user wanted the final line to land with more control:
 
 > "Signatures dot law ... Closing packets — assembled."
 
-Because TTS is non-deterministic, the skill generated five takes of only the final line, built a small local audition page, and the user chose **take 04**. The chosen take was then copied into the Remotion project as the final audio segment and given a post-roll hold so the film did not end abruptly.
+Because TTS is non-deterministic, the skill generated five takes of only the final line, built a small local audition page, and the user chose **take 04**. The chosen take was then copied into the HyperFrames project as the final audio source and given a post-roll hold so the film did not end abruptly.
 
 The user also noticed an awkward early pause. The skill measured the audio envelope instead of guessing:
 
@@ -217,10 +217,13 @@ signatures-law/
 ├── voice-auditions/
 │   ├── index.html
 │   └── final-line-takes/
-├── remotion/
-│   ├── src/
-│   │   ├── data/film.ts
-│   │   └── compositions/scenes/NorthExplainer.tsx
+├── hyperframes/
+│   ├── data/
+│   │   ├── film.json
+│   │   └── tokens.json
+│   ├── compositions/
+│   │   ├── hook.html
+│   │   └── full.html
 │   └── public/audio/segments/
 └── out/
     ├── hook.mp4

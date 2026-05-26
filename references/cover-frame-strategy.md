@@ -84,4 +84,4 @@ The cover frame passes only if:
 - The still matches the film's actual tone and promise
 - The first three seconds reward the still rather than replacing it with a different idea
 
-If it fails, adjust the cold-open section in `film.ts` or the design tokens, then re-render the hook. Do not present the hook with a weak cover frame and hope the video saves it.
+If it fails, adjust the cold-open section in `film.json` or the design tokens, then re-render the hook. Do not present the hook with a weak cover frame and hope the video saves it.

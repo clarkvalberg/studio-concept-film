@@ -183,7 +183,7 @@ The user chose **Brian**.
 
 ## Phase 6 — Hook render
 
-The skill scaffolded the Remotion project, wrote the film data, generated section audio, and rendered the hook.
+The skill scaffolded the HyperFrames project, wrote the film data, generated section audio, and rendered the hook.
 
 The first hook proved the brand direction but not the explainer grammar. The user pushed on it, and the skill built a custom scene system around product-native state changes:
 
@@ -203,7 +203,7 @@ User feedback narrowed to two precise issues: the final line and an awkward open
 
 > "Signatures dot law ... Closing packets — assembled."
 
-Because TTS is non-deterministic, the skill generated five takes of only the final line, built a local audition page, and the user chose **take 04**. The chosen take was copied into the Remotion project as the final audio segment and given a post-roll hold so the film did not end abruptly.
+Because TTS is non-deterministic, the skill generated five takes of only the final line, built a local audition page, and the user chose **take 04**. The chosen take was copied into the HyperFrames project as the final audio source and given a post-roll hold so the film did not end abruptly.
 
 **Opening pause.** The user noticed an awkward early pause. The skill measured the audio envelope instead of guessing:
 
@@ -230,10 +230,13 @@ signatures-law/
 ├── voice-auditions/
 │   ├── index.html
 │   └── final-line-takes/
-├── remotion/
-│   ├── src/
-│   │   ├── data/film.ts
-│   │   └── compositions/scenes/NorthExplainer.tsx
+├── hyperframes/
+│   ├── data/
+│   │   ├── film.json
+│   │   └── tokens.json
+│   ├── compositions/
+│   │   ├── hook.html
+│   │   └── full.html
 │   └── public/audio/segments/
 └── out/
     ├── hook.mp4

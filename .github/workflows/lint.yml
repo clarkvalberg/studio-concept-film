@@ -19,25 +19,24 @@ jobs:
           scandir: ./scripts
           severity: warning
 
-  typescript:
-    name: typescript
+  hyperframes:
+    name: hyperframes
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: assets/remotion-template
+        working-directory: assets/hyperframes-template
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
       - name: Setup Node
         uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af # v4.1.0
         with:
-          node-version: "20"
+          node-version: "22"
 
-      - name: Install dependencies
-        run: npm install --no-audit --no-fund
-
-      - name: Type-check
-        run: npx tsc --noEmit
+      - name: Lint HyperFrames template
+        run: |
+          node scripts/generate-data.mjs
+          npx --yes hyperframes@0.6.46 lint
 
   markdown-link-check:
     name: link-check
@@ -62,7 +61,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af # v4.1.0
         with:
-          node-version: "20"
+          node-version: "22"
 
       - name: Install ffmpeg
         run: |
@@ -81,7 +80,9 @@ jobs:
             -t 15 \
             -q:a 9 \
             -acodec libmp3lame \
-            "$project/remotion/public/audio/hook.mp3"
+            "$project/hyperframes/public/audio/hook.mp3"
           ./scripts/render-hook.sh "$project"
           test -s "$project/out/hook.mp4"
           test -s "$project/out/cover-frame.png"
+          ./scripts/check-static-video.sh "$project/out/hook.mp4"
+          ffprobe -v error -select_streams a:0 -show_entries stream=codec_type -of csv=p=0 "$project/out/hook.mp4" | grep -q '^audio$'

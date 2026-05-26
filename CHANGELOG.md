@@ -6,6 +6,20 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 ---
 
+## [1.1.0] — 2026-05-26
+
+### Changed
+
+- Replaced the Remotion render template with a HyperFrames HTML/CSS/GSAP template.
+- Switched the project data contract from `film.ts` and `BrandTokens.ts` to `data/film.json` and `data/tokens.json`.
+- Updated scripts, Makefile targets, CI smoke render, installation docs, workflow docs, and examples for HyperFrames and Node.js 22+.
+
+### Removed
+
+- Removed `assets/remotion-template/` and the Remotion npm dependency surface from new projects.
+
+---
+
 ## [1.0.7] — 2026-05-25
 
 ### Added
@@ -177,6 +191,7 @@ This release is deliberately narrow. The skill produces concept films and nothin
 
 ---
 
+[1.1.0]: https://github.com/clarkvalberg/studio-video-creator/releases/tag/v1.1.0
 [1.0.7]: https://github.com/clarkvalberg/studio-video-creator/releases/tag/v1.0.7
 [1.0.6]: https://github.com/clarkvalberg/studio-video-creator/releases/tag/v1.0.6
 [1.0.5]: https://github.com/clarkvalberg/studio-video-creator/releases/tag/v1.0.5

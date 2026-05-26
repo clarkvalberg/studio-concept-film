@@ -1,0 +1,14 @@
+{
+  "name": "studio-concept-film-hyperframes",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "sync": "node scripts/generate-data.mjs",
+    "dev": "STUDIO_RENDER_MODE=preview node scripts/generate-data.mjs && npx --yes hyperframes@0.6.46 preview",
+    "lint": "npm run sync && npx --yes hyperframes@0.6.46 lint",
+    "inspect": "npm run sync && npx --yes hyperframes@0.6.46 inspect",
+    "check": "npm run lint && npm run inspect",
+    "render:hook": "STUDIO_RENDER_MODE=hook node scripts/generate-data.mjs && npx --yes hyperframes@0.6.46 render --composition compositions/hook.html --output ../out/hook.mp4",
+    "render:full": "STUDIO_RENDER_MODE=full node scripts/generate-data.mjs && npx --yes hyperframes@0.6.46 render --composition compositions/full.html --output ../out/final.mp4"
+  }
+}

@@ -23,7 +23,7 @@ jobs:
             -x '.DS_Store' \
             -x '*.mp4' \
             -x '*.mp3'
-          zip -rq studio-video-creator.skill docs/media/harmony-pitch-brian-verified-2026-05-14.mp4
+          zip -rq studio-video-creator.skill docs/media/signatures-law-final-2026-05-25.mp4
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@da05d552573ad5aba039eaac05058a918a7bf631 # v2.2.2

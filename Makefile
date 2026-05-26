@@ -1,5 +1,5 @@
 .DEFAULT_GOAL := help
-.PHONY: help init audition design-thumbnail voiceover voiceover-hook hook full preview lint typecheck shellcheck clean release-skill
+.PHONY: help init audition design-thumbnail voiceover voiceover-hook hook full preview lint template-check typecheck shellcheck clean release-skill
 
 # ──────────────────────────────────────────────────────────────────
 #  studio-video-creator  ·  ergonomic command surface
@@ -14,7 +14,7 @@ PROJECT ?=
 
 help: ## Show this help
 	@echo ""
-	@echo "  studio-video-creator  ·  v1.0.7"
+	@echo "  studio-video-creator  ·  v1.1.0"
 	@echo "  ────────────────────────────────────────────────────"
 	@echo ""
 	@echo "  Usage: make <target> [PROJECT=<path-to-project>]"
@@ -43,10 +43,10 @@ audition: ## Generate voice audition samples (use AUDITION_SCRIPT="text" AUDITIO
 design-thumbnail: _require-project ## Render the Phase 4 design thumbnail to <project>/out/design-thumbnail.png
 	@./scripts/render-design-thumbnail.sh $(PROJECT)
 
-voiceover-hook: _require-project ## Generate hook voiceover (first ~15s) into <project>/remotion/public/audio/hook.mp3
+voiceover-hook: _require-project ## Generate hook voiceover (first ~15s) into <project>/hyperframes/public/audio/hook.mp3
 	@./scripts/generate-voiceover.sh $(PROJECT) --hook-only
 
-voiceover: _require-project ## Generate full voiceover into <project>/remotion/public/audio/voiceover.mp3
+voiceover: _require-project ## Generate full voiceover into <project>/hyperframes/public/audio/voiceover.mp3
 	@./scripts/generate-voiceover.sh $(PROJECT)
 
 hook: _require-project ## Render the hook (~15s) and export cover-frame.png
@@ -55,23 +55,25 @@ hook: _require-project ## Render the hook (~15s) and export cover-frame.png
 full: _require-project ## Render the full film (60–90s)
 	@./scripts/render-full.sh $(PROJECT)
 
-preview: _require-project ## Launch Remotion preview at localhost:3000
-	@cd $(PROJECT)/remotion && npx remotion studio
+preview: _require-project ## Launch HyperFrames preview at localhost:3002
+	@cd $(PROJECT)/hyperframes && STUDIO_RENDER_MODE=preview node scripts/generate-data.mjs && npx --yes hyperframes@0.6.46 preview
 
 # ── repo maintenance ───────────────────────────────────────────────
 
-lint: shellcheck typecheck ## Run all linters (shellcheck + tsc)
+lint: shellcheck template-check ## Run all linters (shellcheck + HyperFrames lint)
 
 shellcheck: ## Run shellcheck on all bash scripts
 	@echo "→ shellcheck scripts/"
 	@shellcheck scripts/*.sh && echo "  ✓ all clean"
 
-typecheck: ## Run TypeScript type-check on the Remotion template
-	@echo "→ tsc --noEmit (Remotion template)"
-	@cd assets/remotion-template && \
-		(test -d node_modules || npm install --silent) && \
-		npx tsc --noEmit && \
+template-check: ## Run HyperFrames template checks
+	@echo "→ hyperframes lint (template)"
+	@cd assets/hyperframes-template && \
+		node scripts/generate-data.mjs && \
+		npx --yes hyperframes@0.6.46 lint && \
 		echo "  ✓ all clean"
+
+typecheck: template-check ## Compatibility alias for older scripts
 
 clean: ## Remove rendered output and caches (does not affect projects)
 	@find . -name node_modules -type d -prune -exec rm -rf {} + 2>/dev/null || true

@@ -2,7 +2,7 @@
 # generate-voiceover.sh — Generate the full voiceover audio for a project's script.
 #
 # Reads voice.json for the voice_id and settings, reads script.md for the text,
-# outputs to remotion/public/audio/voiceover.mp3.
+# outputs to hyperframes/public/audio/voiceover.mp3.
 #
 # Usage: ./generate-voiceover.sh <project-dir> [--hook-only]
 
@@ -47,10 +47,10 @@ if $HOOK_ONLY; then
     /^## / { section_count++ }
     section_count <= 1 && /^\*\*VO:\*\*/ { sub(/^\*\*VO:\*\* */, ""); print }
   ' "$SCRIPT_MD" | tr '\n' ' ')
-  out_file="$PROJECT_DIR/remotion/public/audio/hook.mp3"
+  out_file="$PROJECT_DIR/hyperframes/public/audio/hook.mp3"
 else
   vo_text=$(extract_vo "$SCRIPT_MD")
-  out_file="$PROJECT_DIR/remotion/public/audio/voiceover.mp3"
+  out_file="$PROJECT_DIR/hyperframes/public/audio/voiceover.mp3"
 fi
 
 vo_text=$(printf '%s' "$vo_text" | sed 's/  */ /g; s/^ *//; s/ *$//')

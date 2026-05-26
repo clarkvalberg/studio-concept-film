@@ -6,7 +6,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-1A1614.svg?style=flat-square)](LICENSE)
 [![Claude Skill](https://img.shields.io/badge/Claude-Skill-C68B3C.svg?style=flat-square)](https://claude.com/skills)
-[![Built with Remotion](https://img.shields.io/badge/Built%20with-Remotion-1A1614.svg?style=flat-square)](https://remotion.dev)
+[![Built with HyperFrames](https://img.shields.io/badge/Built%20with-HyperFrames-1A1614.svg?style=flat-square)](https://github.com/heygen-com/hyperframes)
 [![Voice: ElevenLabs](https://img.shields.io/badge/Voice-ElevenLabs-1A1614.svg?style=flat-square)](https://elevenlabs.io)
 [![Status: v1.0.7](https://img.shields.io/badge/Status-v1.0.7-2E6F5E.svg?style=flat-square)](CHANGELOG.md)
 
@@ -76,7 +76,7 @@ The design thumbnail is the aesthetic iteration unit. The hook render is the vid
 ### Prerequisites
 
 - **Claude** with skills support (claude.ai, Claude Code, or any Claude environment that loads skills)
-- **Node.js 18+** for rendering (Remotion)
+- **Node.js 22+** and **FFmpeg** for rendering locally with HyperFrames
 - **ElevenLabs API key** or access to the ElevenLabs Player MCP for voiceover
 
 ### Install the skill
@@ -112,7 +112,7 @@ your-project/
 ├── motion-board.md    ← beat-by-beat visual causality plan
 ├── design.md          ← visual / motion language + cover-frame strategy
 ├── voice.json         ← selected ElevenLabs voice
-├── remotion/          ← full Remotion project, populated
+├── hyperframes/       ← full HyperFrames project, populated
 │   ├── src/
 │   └── public/
 └── out/
@@ -122,7 +122,7 @@ your-project/
     └── final.mp4      ← 60–90s · 1080p · ship-ready
 ```
 
-Everything is editable. Everything is re-renderable. The Remotion project is yours — hand it to a designer to refine, swap in higher-fidelity screens, change the voice for a different audience. The design thumbnail is there so the look can be corrected before voice and video render time enter the loop. The cover frame is there so the actual frozen first impression is judged deliberately, not left to frame-0 luck.
+Everything is editable. Everything is re-renderable. The HyperFrames project is yours — hand it to a designer to refine, swap in higher-fidelity screens, change the voice for a different audience. The design thumbnail is there so the look can be corrected before voice and video render time enter the loop. The cover frame is there so the actual frozen first impression is judged deliberately, not left to frame-0 luck.
 
 <br />
 
@@ -196,7 +196,7 @@ studio-video-creator/
 │   ├── design-language.md        ← UI references, brand extraction
 │   ├── cover-frame-strategy.md   ← poster-frame archetypes + checks
 │   ├── intake-checklist.md       ← what to extract per input type
-│   ├── remotion-integration.md   ← file layout, data shape, render specs
+│   ├── hyperframes-integration.md ← file layout, data shape, render specs
 │   └── example-signatures-law.md ← a complete worked example
 ├── scripts/                      ← executable helpers
 │   ├── init-project.sh
@@ -207,16 +207,16 @@ studio-video-creator/
 │   ├── render-hook.sh
 │   └── render-full.sh
 ├── assets/
-│   └── remotion-template/        ← the rendering layer
-│       └── src/
-│           ├── Root.tsx
-│           ├── compositions/
-│           │   ├── DesignThumbnail.tsx
-│           │   ├── HookFilm.tsx
-│           │   ├── FullFilm.tsx
-│           │   ├── SceneRenderer.tsx
-│           │   └── scenes/       ← 8 scene types
-│           └── data/film.ts      ← data contract with the skill
+│   └── hyperframes-template/     ← the rendering layer
+│       ├── compositions/
+│       │   ├── design-thumbnail.html
+│       │   ├── hook.html
+│       │   └── full.html
+│       ├── data/
+│       │   ├── film.json         ← project data contract
+│       │   └── tokens.json       ← design token contract
+│       └── scripts/
+│           └── studio-composition.js
 └── docs/                         ← philosophy, workflow, examples
 ```
 
