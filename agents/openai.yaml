@@ -1,6 +1,6 @@
 interface:
   display_name: "Studio Video Creator"
-  short_description: "Create studio-grade product concept films"
+  short_description: "Create short product concept films"
   icon_small: "./assets/studio-video-creator-icon.png"
   icon_large: "./docs/images/social-preview.png"
   brand_color: "#C68B3C"

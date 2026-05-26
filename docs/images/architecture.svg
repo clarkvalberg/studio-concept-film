@@ -70,7 +70,7 @@
       <text class="sub" y="62" font-family="ui-monospace, monospace">motion-board.md</text>
       <text class="sub" y="82" font-family="ui-monospace, monospace">design.md</text>
       <text class="sub" y="102" font-family="ui-monospace, monospace">voice.json</text>
-      <text class="sub" y="122" font-family="ui-monospace, monospace">hyperframes/</text>
+      <text class="sub" y="122" font-family="ui-monospace, monospace">renderer/</text>
       <text class="sub" y="142" font-family="ui-monospace, monospace">out/design-thumbnail.png</text>
       <text class="sub" y="162" font-family="ui-monospace, monospace">out/cover-frame.png</text>
       <text class="sub" y="190" font-style="italic">Re-renderable. Editable.</text>
@@ -98,6 +98,6 @@
 
   <!-- Bottom note -->
   <g transform="translate(640, 380)" text-anchor="middle">
-    <text class="mono" letter-spacing="0.12em" fill="#6B6B6B">CLAUDE  /  REMOTION  /  ELEVENLABS  /  MOBBIN</text>
+    <text class="mono" letter-spacing="0.12em" fill="#6B6B6B">CLAUDE  /  HYPERFRAMES OR REMOTION  /  ELEVENLABS  /  MOBBIN</text>
   </g>
 </svg>

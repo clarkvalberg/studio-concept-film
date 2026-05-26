@@ -48,7 +48,7 @@ through generated browser data.
 ```json
 {
   "meta": {
-    "projectName": "Harmony",
+    "projectName": "Signatures.law",
     "variant": "customer-led",
     "totalDuration": 75,
     "fps": 30,
@@ -67,12 +67,12 @@ through generated browser data.
       "sceneType": "CustomerMoment",
       "start": 0,
       "duration": 8,
-      "vo": "It's the 14th of the month. Russ has 312 compliance documents on his desk.",
+      "vo": "It's 6:41 PM. The deal is closed. The signing packet is not.",
       "sceneProps": {
         "eyebrow": "Cold Open",
-        "visualAction": "hand lifts a page; the overfull stack shifts and exposes the workload",
-        "beforeState": "paperwork burden is implied",
-        "afterState": "paperwork burden is physically visible",
+        "visualAction": "closing PDF stack lands beside the laptop; binder cursor waits",
+        "beforeState": "deal is closed, packet state is unresolved",
+        "afterState": "the viewer sees the packet as the remaining legal work",
         "productProof": "problem object",
         "motionMode": "human-action",
         "kineticPhrase": "312 documents",

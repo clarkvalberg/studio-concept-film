@@ -2,7 +2,7 @@
 # generate-voiceover.sh — Generate the full voiceover audio for a project's script.
 #
 # Reads voice.json for the voice_id and settings, reads script.md for the text,
-# outputs to hyperframes/public/audio/voiceover.mp3.
+# outputs to the selected renderer's public/audio directory.
 #
 # Usage: ./generate-voiceover.sh <project-dir> [--hook-only]
 
@@ -13,6 +13,9 @@ set -euo pipefail
 PROJECT_DIR="$1"
 HOOK_ONLY=false
 [[ "${2:-}" == "--hook-only" ]] && HOOK_ONLY=true
+SKILL_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+# shellcheck source=scripts/lib/renderers.sh
+source "$SKILL_DIR/scripts/lib/renderers.sh"
 
 [[ -z "${ELEVENLABS_API_KEY:-}" ]] && {
   echo "Error: ELEVENLABS_API_KEY not set." >&2
@@ -21,6 +24,8 @@ HOOK_ONLY=false
 
 VOICE_JSON="$PROJECT_DIR/voice.json"
 SCRIPT_MD="$PROJECT_DIR/script.md"
+RENDERER="$(renderer_from_project "$PROJECT_DIR")"
+AUDIO_DIR="$(renderer_audio_dir "$PROJECT_DIR" "$RENDERER")"
 
 [[ ! -f "$VOICE_JSON" ]] && { echo "Error: $VOICE_JSON not found." >&2; exit 1; }
 [[ ! -f "$SCRIPT_MD" ]] && { echo "Error: $SCRIPT_MD not found." >&2; exit 1; }
@@ -47,10 +52,10 @@ if $HOOK_ONLY; then
     /^## / { section_count++ }
     section_count <= 1 && /^\*\*VO:\*\*/ { sub(/^\*\*VO:\*\* */, ""); print }
   ' "$SCRIPT_MD" | tr '\n' ' ')
-  out_file="$PROJECT_DIR/hyperframes/public/audio/hook.mp3"
+  out_file="$AUDIO_DIR/hook.mp3"
 else
   vo_text=$(extract_vo "$SCRIPT_MD")
-  out_file="$PROJECT_DIR/hyperframes/public/audio/voiceover.mp3"
+  out_file="$AUDIO_DIR/voiceover.mp3"
 fi
 
 vo_text=$(printf '%s' "$vo_text" | sed 's/  */ /g; s/^ *//; s/ *$//')

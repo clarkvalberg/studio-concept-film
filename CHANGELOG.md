@@ -6,6 +6,22 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 ---
 
+## [1.2.0] — 2026-05-26
+
+### Added
+
+- Added renderer selection through `<project>/renderer.json`, `--renderer hyperframes|remotion`, and `STUDIO_VIDEO_RENDERER`.
+- Restored Remotion as an optional renderer template for React-native video projects.
+- Added `references/renderers.md` with selection guidance for HyperFrames, Remotion, and adjacent tools to watch.
+- Added `scripts/preview.sh` and renderer-aware routing for thumbnail, hook, full render, and voiceover helpers.
+
+### Changed
+
+- Kept HyperFrames as the default renderer while making script output paths and docs renderer-aware.
+- Expanded CI/template checks to cover HyperFrames linting, Remotion typechecking, and Remotion scaffold smoke coverage.
+
+---
+
 ## [1.1.0] — 2026-05-26
 
 ### Changed

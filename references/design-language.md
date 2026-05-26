@@ -2,7 +2,7 @@
 
 Used in Phase 4. The film has a visual language. You decide it, then show the user. Two paths: extract from an existing brand, or propose two directions when no brand exists.
 
-The output of this phase is a `design.md` file with concrete tokens that flow directly into the HyperFrames template's `tokens.json`, a cover-frame strategy for the video's actual first frame, plus a rendered `out/design-thumbnail.png` style frame. Tokens are the contract; the thumbnail is the proof that the contract feels right.
+The output of this phase is a `design.md` file with concrete tokens that flow directly into the selected renderer's token file, a cover-frame strategy for the video's actual first frame, plus a rendered `out/design-thumbnail.png` style frame. Tokens are the contract; the thumbnail is the proof that the contract feels right.
 
 ## What "design language" means for a concept film
 
@@ -106,8 +106,8 @@ After choosing or extracting the design direction:
 
 1. Initialize the project if needed: `scripts/init-project.sh <project>`.
 2. Write `design.md` with the tokens and rationale.
-3. Write `tokens.json` with the exact typography, color, motion, and spacing tokens.
-4. Write enough `film.json` content for the thumbnail: project name, chosen variant, a representative script line, the cover-frame intent, and the vision-close tagline.
+3. Write the selected renderer's token file with the exact typography, color, motion, and spacing tokens.
+4. Write enough renderer data for the thumbnail: project name, chosen variant, a representative script line, the cover-frame intent, and the vision-close tagline.
 5. Render the thumbnail: `scripts/render-design-thumbnail.sh <project>`.
 6. Present `out/design-thumbnail.png` and ask for aesthetic approval before voice audition.
 
@@ -121,7 +121,7 @@ The thumbnail should be a 16:9 title frame, not a wireframe and not a mood-board
 
 The thumbnail is allowed to be a title card even when the final cover frame will be a human moment or product state. If those differ, say so explicitly: "This thumbnail proves the design system; the hook will open on [specific cover frame]."
 
-If the user says "warmer," "too SaaS," "more premium," "less dark," or anything similar, treat that as valid design feedback. Update `design.md` and `tokens.json`, re-render `design-thumbnail.png`, and repeat until approved. Only then proceed to Phase 5.
+If the user says "warmer," "too SaaS," "more premium," "less dark," or anything similar, treat that as valid design feedback. Update `design.md` and the selected renderer's token file, re-render `design-thumbnail.png`, and repeat until approved. Only then proceed to Phase 5.
 
 ## Path 2 — Propose two directions
 
@@ -233,7 +233,7 @@ Most films pick one as primary and borrow one beat from another (e.g., slow edit
 
 ### Tokens to specify
 
-In `tokens.json`, motion gets these tokens:
+In the renderer token file, motion gets these tokens:
 
 ```typescript
 export const motion = {
@@ -249,7 +249,7 @@ export const motion = {
 };
 ```
 
-The HyperFrames scenes import these tokens — they don't hard-code timings. Keep that contract.
+Renderer scenes import these tokens — they don't hard-code timings. Keep that contract.
 
 ## Using UI reference sources (when available)
 

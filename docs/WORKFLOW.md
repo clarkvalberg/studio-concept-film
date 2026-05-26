@@ -100,7 +100,7 @@ Before defining the design, Claude runs a compact visual source checkpoint: it n
 - **If the brand exists** (live product, established palette): Claude extracts it. Typography, color, motion sensibility, imagery direction.
 - **If the brand doesn't exist yet**: Claude proposes two named directions, each with a one-paragraph description and three concrete UI references from Mobbin, Refero, or an equivalent source (Editorial · Architectural · Documentary · Optimistic · Minimal-luxury).
 
-The chosen direction is recorded as concrete tokens in `design.md` — typefaces with weights, colors with hex values, motion principles with timing ranges, imagery direction, and cover-frame strategy. These tokens flow directly into the HyperFrames template.
+The chosen direction is recorded as concrete tokens in `design.md` — typefaces with weights, colors with hex values, motion principles with timing ranges, imagery direction, and cover-frame strategy. These tokens flow directly into the selected renderer template. HyperFrames is the default; Remotion is used when a React-native video project is the better artifact.
 
 Then Claude renders `out/design-thumbnail.png`: a 16:9 title-frame / style-frame artifact showing the type, palette, spacing, screen treatment, and overall vibe in one glance. If the user reacts with "warmer," "less corporate," "more premium," "too dark," or similar, Claude updates the tokens and re-renders the thumbnail until it lands.
 
@@ -139,8 +139,8 @@ If the user wants a voice outside the shortlist, Claude adds it for this project
 
 **What happens:**
 
-1. `scripts/init-project.sh` copies the HyperFrames template into the project directory
-2. Claude writes the project-specific `film.json` and `tokens.json` from `script.md`, `motion-board.md`, and `design.md`
+1. `scripts/init-project.sh` copies the selected renderer template into the project directory
+2. Claude writes the project-specific renderer data and tokens from `script.md`, `motion-board.md`, and `design.md`
 3. Claude generates the hook voiceover via ElevenLabs (Cold Open + first beat of Problem)
 4. `scripts/render-hook.sh` renders the Hook composition and exports frame 0 as `out/cover-frame.png`
 5. Claude inspects `out/cover-frame.png` as the silent poster frame: not blank, readable at 25% size, honest to the film, and rewarded by the first three seconds
@@ -163,8 +163,8 @@ Render time: ~2–4 minutes.
 |---|---|---|
 | "Punchier open" | `script.md` cold open + new audio | Hook |
 | "Swap to a warmer voice" | new audio with different voice ID | Hook |
-| "Adjust the accent to deeper teal" | `tokens.json` | Hook |
-| "Slow the product walk" | `film.json` timing for productWalk | Full (or scene preview) |
+| "Adjust the accent to deeper teal" | Renderer token file | Hook |
+| "Slow the product walk" | Renderer timing data for productWalk | Full (or scene preview) |
 | "Replace screen 2" | new file in `public/screens/` | Hook or scene preview |
 
 **Full render trigger:** the user says "render the full thing" / "let's go full" / similar.

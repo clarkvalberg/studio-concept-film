@@ -52,7 +52,7 @@ Yes. The list is in [`references/script-rules.md`](../references/script-rules.md
 
 ### How much does a film cost to render?
 
-Compute is free if you render locally — your machine, Node, HyperFrames. The main cost is ElevenLabs credits for voiceover generation. A 90-second voiceover at standard quality is roughly 1,500 characters; pricing varies by plan but typically costs cents. Hook audition (four 15-second samples) costs around 4× that.
+Compute is free if you render locally — your machine, Node, and the selected renderer. The main cost is ElevenLabs credits for voiceover generation. A 90-second voiceover at standard quality is roughly 1,500 characters; pricing varies by plan but typically costs cents. Hook audition (four 15-second samples) costs around 4× that.
 
 ### Can I use a voice not in the shortlist?
 
@@ -62,17 +62,21 @@ Yes. The skill will use any ElevenLabs voice ID you provide. The shortlist is a 
 
 No. The skill takes a prototype as input — Figma link, deployed URL, screenshots, or a reference. Generating prototypes is a different job done better by other tools (Figma, v0, Lovable, real code). If you don't have a prototype yet, the skill uses schematic stand-ins and flags it in the brief; you can swap real screens in later and re-render.
 
-### Why HyperFrames?
+### Why HyperFrames by default?
 
 Because the rendering layer needs to be programmatic, version-controlled, and editable by humans. After-Effects-style timeline editors don't satisfy any of those. HyperFrames lets the film be an HTML/CSS/GSAP project — the script lives in JSON, the design lives in tokens, and the scenes are browser-native compositions. You can hand the resulting project to a designer or engineer and they'll know what to do.
 
 It also renders entirely locally, so there's no SaaS dependency on the rendering side. Your videos are your videos.
 
+### Can I use Remotion instead?
+
+Yes. Initialize a project with `scripts/init-project.sh <project> --renderer remotion`, or ask for Remotion if a React-native video project is the better artifact. HyperFrames remains the default because it has less setup friction for this skill's HTML/GSAP workflow.
+
 ### Why not Premiere / Final Cut / DaVinci?
 
-Those are excellent tools for film editing, but a concept film generated from a brief is *authored*, not *edited*. The film exists because a script + design + voice + screens combined deterministically. That's a build problem, not an editing problem. HyperFrames is the right shape for builds.
+Those are excellent tools for film editing, but a concept film generated from a brief is *authored*, not *edited*. The film exists because a script + design + voice + screens combined deterministically. That's a build problem, not an editing problem. A local, source-controlled renderer is the right shape for builds.
 
-If you want to refine the final render further in a video editor, export from HyperFrames and import into your tool of choice.
+If you want to refine the final render further in a video editor, export the rendered MP4 and import it into your tool of choice.
 
 ### How is this different from a Loom recording or a generated AI video?
 
@@ -84,7 +88,7 @@ The skill expects voiceover. You could render without audio by skipping Phase 5 
 
 ### Can I run this skill without Claude?
 
-The HyperFrames template, the scripts, and the references are all standalone. You can use the template directly — write `film.json` and `tokens.json` by hand, generate audio with the included `scripts/audition.sh` and `scripts/generate-voiceover.sh`, and render. The skill is the orchestration layer; the underlying machine works without it.
+The renderer templates, scripts, and references are all standalone. You can use the template directly — write the renderer data files by hand, generate audio with the included `scripts/audition.sh` and `scripts/generate-voiceover.sh`, and render. The skill is the orchestration layer; the underlying machine works without it.
 
 The orchestration is still the main value: structure selection, script rules, design proposal, voice matching, legibility gate, and hook review. Without Claude, the template remains useful, but the process becomes more manual.
 
@@ -94,7 +98,7 @@ No. The repository is public for reference and installation, but external issues
 
 ### Who built this?
 
-Built inside [Transformative Studio](https://transformative.studio), which builds AI-native vertical ventures. The skill exists to make a specific concept-film workflow repeatable.
+Built inside [Transformative Studio](https://transformative.studio). The skill exists to make a specific concept-film workflow repeatable. Use the website as the source of truth for current studio context.
 
 ### Where can I see films made with this?
 

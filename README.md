@@ -6,9 +6,10 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-1A1614.svg?style=flat-square)](LICENSE)
 [![Claude Skill](https://img.shields.io/badge/Claude-Skill-C68B3C.svg?style=flat-square)](https://claude.com/skills)
-[![Built with HyperFrames](https://img.shields.io/badge/Built%20with-HyperFrames-1A1614.svg?style=flat-square)](https://github.com/heygen-com/hyperframes)
+[![Default Renderer: HyperFrames](https://img.shields.io/badge/Default%20Renderer-HyperFrames-1A1614.svg?style=flat-square)](https://github.com/heygen-com/hyperframes)
+[![Optional Renderer: Remotion](https://img.shields.io/badge/Optional%20Renderer-Remotion-1A1614.svg?style=flat-square)](https://www.remotion.dev/)
 [![Voice: ElevenLabs](https://img.shields.io/badge/Voice-ElevenLabs-1A1614.svg?style=flat-square)](https://elevenlabs.io)
-[![Status: v1.0.7](https://img.shields.io/badge/Status-v1.0.7-2E6F5E.svg?style=flat-square)](CHANGELOG.md)
+[![Status: v1.2.0](https://img.shields.io/badge/Status-v1.2.0-2E6F5E.svg?style=flat-square)](CHANGELOG.md)
 
 **A Claude skill that produces sixty-to-ninety-second concept films for product concepts, studio projects, and early-stage ventures.**
 
@@ -76,7 +77,8 @@ The design thumbnail is the aesthetic iteration unit. The hook render is the vid
 ### Prerequisites
 
 - **Claude** with skills support (claude.ai, Claude Code, or any Claude environment that loads skills)
-- **Node.js 22+** and **FFmpeg** for rendering locally with HyperFrames
+- **Node.js 22+** and **FFmpeg** for rendering locally
+- **HyperFrames** is the default renderer; **Remotion** is available when a React-native video project is the better artifact
 - **ElevenLabs API key** or access to the ElevenLabs Player MCP for voiceover
 
 ### Install the skill
@@ -112,8 +114,9 @@ your-project/
 ├── motion-board.md    ← beat-by-beat visual causality plan
 ├── design.md          ← visual / motion language + cover-frame strategy
 ├── voice.json         ← selected ElevenLabs voice
-├── hyperframes/       ← full HyperFrames project, populated
-│   ├── src/
+├── renderer.json      ← selected renderer
+├── hyperframes/ or remotion/
+│   ├── data/ or src/
 │   └── public/
 └── out/
     ├── design-thumbnail.png ← Phase 4 · title-frame style artifact
@@ -122,7 +125,7 @@ your-project/
     └── final.mp4      ← 60–90s · 1080p · ship-ready
 ```
 
-Everything is editable. Everything is re-renderable. The HyperFrames project is yours — hand it to a designer to refine, swap in higher-fidelity screens, change the voice for a different audience. The design thumbnail is there so the look can be corrected before voice and video render time enter the loop. The cover frame is there so the actual frozen first impression is judged deliberately, not left to frame-0 luck.
+Everything is editable. Everything is re-renderable. The renderer project is yours — hand it to a designer or engineer to refine, swap in higher-fidelity screens, change the voice for a different audience. The design thumbnail is there so the look can be corrected before voice and video render time enter the loop. The cover frame is there so the actual frozen first impression is judged deliberately, not left to frame-0 luck.
 
 <br />
 
@@ -171,7 +174,7 @@ The useful pattern is simple:
 
 ## Roadmap
 
-The first release stays deliberately narrow: 60–90 second concept films with a gated hook-render loop. The broader `studio-video-creator` direction is a family of short studio-grade product videos built from the same workflow:
+The skill stays deliberately narrow: 60–90 second concept films with a gated hook-render loop. The broader `studio-video-creator` direction is a family of short product videos built from the same workflow:
 
 - **Concept film** — current format; source material becomes a voiceover-led pitch film
 - **Launch teaser** — shorter public-facing reveal for a product or studio project
@@ -196,7 +199,9 @@ studio-video-creator/
 │   ├── design-language.md        ← UI references, brand extraction
 │   ├── cover-frame-strategy.md   ← poster-frame archetypes + checks
 │   ├── intake-checklist.md       ← what to extract per input type
-│   ├── hyperframes-integration.md ← file layout, data shape, render specs
+│   ├── renderers.md              ← renderer selection guidance
+│   ├── hyperframes-integration.md ← HyperFrames layout, data shape, render specs
+│   ├── remotion-integration.md    ← Remotion layout and React contract
 │   └── example-signatures-law.md ← a complete worked example
 ├── scripts/                      ← executable helpers
 │   ├── init-project.sh
@@ -207,16 +212,17 @@ studio-video-creator/
 │   ├── render-hook.sh
 │   └── render-full.sh
 ├── assets/
-│   └── hyperframes-template/     ← the rendering layer
-│       ├── compositions/
-│       │   ├── design-thumbnail.html
-│       │   ├── hook.html
-│       │   └── full.html
-│       ├── data/
-│       │   ├── film.json         ← project data contract
-│       │   └── tokens.json       ← design token contract
-│       └── scripts/
-│           └── studio-composition.js
+│   ├── hyperframes-template/     ← default rendering layer
+│   │   ├── compositions/
+│   │   │   ├── design-thumbnail.html
+│   │   │   ├── hook.html
+│   │   │   └── full.html
+│   │   ├── data/
+│   │   │   ├── film.json         ← project data contract
+│   │   │   └── tokens.json       ← design token contract
+│   │   └── scripts/
+│   │       └── studio-composition.js
+│   └── remotion-template/        ← optional React rendering layer
 └── docs/                         ← philosophy, workflow, examples
 ```
 
@@ -246,9 +252,7 @@ MIT. See [LICENSE](LICENSE).
 
 ## Built inside Transformative Studio
 
-Transformative Studio builds AI-native vertical ventures.
-
-[transformative.studio](https://transformative.studio) · [@Transformative](https://twitter.com/Transformative)
+[transformative.studio](https://transformative.studio) is the source of truth for current studio context.
 
 <br />
 

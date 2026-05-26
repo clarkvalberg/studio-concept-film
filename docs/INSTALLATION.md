@@ -9,7 +9,7 @@ Three ways to install, depending on how you use Claude.
 Before installing, make sure you have:
 
 - **Claude** with skills support — claude.ai with skills enabled, Claude Code, Cowork, or any Claude environment that loads `SKILL.md` files
-- **Node.js 22+** — for rendering the HyperFrames videos locally
+- **Node.js 22+** — for local rendering
 - **One of:**
   - The **ElevenLabs Player MCP** connected to your Claude environment (preferred — auditions play inline in the chat), or
   - An **ElevenLabs API key** with TTS access (works in any environment that can run bash scripts)
@@ -19,6 +19,11 @@ Optional but recommended:
 - **Mobbin, Refero, or another UI reference source** — for design-direction inspiration in Phase 4
 - **`ffmpeg`** — for audio duration measurement and static-video checks
 - **`jq`** — used by the helper bash scripts for JSON parsing
+
+Renderer note:
+
+- HyperFrames is the default renderer for new projects.
+- Remotion is also included for React-native video projects: `scripts/init-project.sh <project> --renderer remotion`.
 
 ---
 
@@ -122,18 +127,19 @@ If Claude does not recognize the request as a concept-film job, the skill is not
 
 ## Troubleshooting
 
-### "HyperFrames render fails"
+### "Renderer fails"
 
 Most common causes:
 
-- **Node or FFmpeg is missing** — run `node -v` and `ffmpeg -version`; HyperFrames requires Node.js 22+ and FFmpeg
+- **Node or FFmpeg is missing** — run `node -v` and `ffmpeg -version`; the default HyperFrames path requires Node.js 22+ and FFmpeg
 - **Missing audio file** — Phase 6 expects `public/audio/hook.mp3`; Phase 7 expects `public/audio/voiceover.mp3`
-- **Missing screenshots** — paths in `data/film.json` must exist in `public/screens/`
-- **Font not found** — install the fonts referenced in `tokens.json` system-wide, or change them to system fonts
+- **Missing screenshots** — paths in the renderer data file must exist in `public/screens/`
+- **Font not found** — install the referenced fonts system-wide, or change them to system fonts
+- **Remotion dependencies are missing** — the scripts install them on first render; if that fails, run `npm ci` in `<project>/remotion`
 
 ### "Audio is out of sync"
 
-Voiceover length must match scene duration in `film.json`. Use `scripts/measure-audio.sh <file>.mp3` to get the actual duration, then update the scene's `duration` field accordingly.
+Voiceover length must match scene duration in the renderer data file. Use `scripts/measure-audio.sh <file>.mp3` to get the actual duration, then update the scene's `duration` field accordingly.
 
 ### "The skill doesn't trigger"
 
@@ -145,4 +151,4 @@ API key is missing, invalid, or doesn't have TTS access. Verify at [elevenlabs.i
 
 ### "I want to extend the skill"
 
-This public repo is available for reference and installation, but is not accepting external issues or pull requests. To extend the skill, fork it and work in either `references/` (frameworks, rules) or `assets/hyperframes-template/` (HTML compositions and renderer scripts).
+This public repo is available for reference and installation, but is not accepting external issues or pull requests. To extend the skill, fork it and work in either `references/` (frameworks, rules) or the renderer template under `assets/`.

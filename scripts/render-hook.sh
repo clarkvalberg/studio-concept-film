@@ -15,45 +15,63 @@ if [ $# -lt 1 ]; then
 fi
 
 PROJECT_DIR="$1"
-HYPERFRAMES_DIR="$PROJECT_DIR/hyperframes"
 OUT_DIR="$PROJECT_DIR/out"
+SKILL_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+# shellcheck source=scripts/lib/renderers.sh
+source "$SKILL_DIR/scripts/lib/renderers.sh"
 
-if [ ! -d "$HYPERFRAMES_DIR" ]; then
-  echo "Error: HyperFrames project not found at $HYPERFRAMES_DIR" >&2
+RENDERER="$(renderer_from_project "$PROJECT_DIR")"
+RENDERER_DIR="$(renderer_project_dir "$PROJECT_DIR" "$RENDERER")"
+AUDIO_DIR="$(renderer_audio_dir "$PROJECT_DIR" "$RENDERER")"
+
+if [ ! -d "$RENDERER_DIR" ]; then
+  echo "Error: $RENDERER project not found at $RENDERER_DIR" >&2
   echo "Run scripts/init-project.sh first." >&2
   exit 1
 fi
 
-if [ ! -f "$HYPERFRAMES_DIR/public/audio/hook.mp3" ]; then
-  echo "Error: Hook audio not found at $HYPERFRAMES_DIR/public/audio/hook.mp3" >&2
+if [ ! -f "$AUDIO_DIR/hook.mp3" ]; then
+  echo "Error: Hook audio not found at $AUDIO_DIR/hook.mp3" >&2
   echo "Generate voiceover for the hook section first (Cold Open + Problem)." >&2
   exit 1
 fi
 
 mkdir -p "$OUT_DIR"
-tmp_dir="$(mktemp -d)"
-trap 'rm -rf "$tmp_dir"' EXIT
 
-echo "→ Rendering hook"
-(
-  cd "$HYPERFRAMES_DIR"
-  STUDIO_RENDER_MODE=hook node scripts/generate-data.mjs
-  npx --yes hyperframes@0.6.46 render \
-    --composition compositions/hook.html \
-    --output "../out/hook.mp4" \
-    --quality standard
+if [ "$RENDERER" = "hyperframes" ]; then
+  tmp_dir="$(mktemp -d)"
+  trap 'rm -rf "$tmp_dir"' EXIT
 
-  echo "→ Exporting cover frame"
-  npx --yes hyperframes@0.6.46 render \
-    --composition compositions/hook.html \
-    --format png-sequence \
-    --fps 1 \
-    --quality draft \
-    --workers 1 \
-    --output "$tmp_dir"
-)
+  echo "→ Rendering hook with HyperFrames"
+  (
+    cd "$RENDERER_DIR"
+    STUDIO_RENDER_MODE=hook node scripts/generate-data.mjs
+    npx --yes hyperframes@0.6.46 render \
+      --composition compositions/hook.html \
+      --output "../out/hook.mp4" \
+      --quality standard
 
-cp "$tmp_dir/frame_000001.png" "$OUT_DIR/cover-frame.png"
+    echo "→ Exporting cover frame"
+    npx --yes hyperframes@0.6.46 render \
+      --composition compositions/hook.html \
+      --format png-sequence \
+      --fps 1 \
+      --quality draft \
+      --workers 1 \
+      --output "$tmp_dir"
+  )
+
+  cp "$tmp_dir/frame_000001.png" "$OUT_DIR/cover-frame.png"
+elif [ "$RENDERER" = "remotion" ]; then
+  ensure_node_package_deps "$RENDERER_DIR" "Remotion"
+  echo "→ Rendering hook with Remotion"
+  (
+    cd "$RENDERER_DIR"
+    npx --no-install remotion render src/index.ts Hook "../out/hook.mp4"
+    echo "→ Exporting cover frame"
+    npx --no-install remotion still src/index.ts Hook "../out/cover-frame.png" --frame=0
+  )
+fi
 
 echo ""
 echo "✓ Hook rendered to $OUT_DIR/hook.mp4"

@@ -22,7 +22,7 @@ A marketing artifact is built to persuade. A concept film is built to clarify. P
 
 **It behaves like a workflow.** The skill gates. It decides silently where it can. It pauses at legibility checks. It tells you which phase you are in. It does not ask three questions when one would do.
 
-**It is not a "magic" black box.** Every artifact it produces is editable. The script lives in a Markdown file you can edit. The design tokens live in JSON you can tune. The HyperFrames project is yours to refine. The skill is the starting line, not the finish.
+**It is not a "magic" black box.** Every artifact it produces is editable. The script lives in a Markdown file you can edit. The design tokens live in a renderer data file you can tune. The renderer project is yours to refine. The skill is the starting line, not the finish.
 
 <br />
 

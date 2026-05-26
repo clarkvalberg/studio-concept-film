@@ -177,6 +177,6 @@ If the user's environment doesn't have an ElevenLabs API key or the Player MCP:
 1. Output the four recommended voices with their IDs and one-line justifications
 2. Provide a link to elevenlabs.io/voices/ where the user can preview each manually
 3. Save the user's selection (by name) to `voice.json` with a flag: `"audio_pending": true`
-4. The HyperFrames template renders with silent audio tracks; user can re-render once audio is generated
+4. The renderer template can still be prepared with audio pending; user can re-render once audio is generated
 
 Don't break the flow chasing a connection that isn't there. The film can be designed in full and audio added at the end.

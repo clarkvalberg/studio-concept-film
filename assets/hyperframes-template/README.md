@@ -1,8 +1,9 @@
 # Concept Film — HyperFrames Template
 
-This HyperFrames project is the rendering layer for `studio-video-creator`.
-The skill copies it into a project directory, writes `data/film.json` and
-`data/tokens.json`, then renders the thumbnail, hook, and full film.
+This HyperFrames project is the default rendering layer for
+`studio-video-creator`. The skill copies it into a project directory, writes
+`data/film.json` and `data/tokens.json`, then renders the thumbnail, hook, and
+full film.
 
 ## Commands
 
