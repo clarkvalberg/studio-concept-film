@@ -9,7 +9,7 @@
 [![Default Renderer: HyperFrames](https://img.shields.io/badge/Default%20Renderer-HyperFrames-1A1614.svg?style=flat-square)](https://github.com/heygen-com/hyperframes)
 [![Optional Renderer: Remotion](https://img.shields.io/badge/Optional%20Renderer-Remotion-1A1614.svg?style=flat-square)](https://www.remotion.dev/)
 [![Voice: ElevenLabs](https://img.shields.io/badge/Voice-ElevenLabs-1A1614.svg?style=flat-square)](https://elevenlabs.io)
-[![Status: v1.2.0](https://img.shields.io/badge/Status-v1.2.0-2E6F5E.svg?style=flat-square)](CHANGELOG.md)
+[![Status: v1.2.1](https://img.shields.io/badge/Status-v1.2.1-2E6F5E.svg?style=flat-square)](CHANGELOG.md)
 
 **A Claude skill that produces sixty-to-ninety-second concept films for product concepts, studio projects, and early-stage ventures.**
 

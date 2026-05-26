@@ -21,7 +21,7 @@ endif
 
 help: ## Show this help
 	@echo ""
-	@echo "  studio-video-creator  ·  v1.2.0"
+	@echo "  studio-video-creator  ·  v1.2.1"
 	@echo "  ────────────────────────────────────────────────────"
 	@echo ""
 	@echo "  Usage: make <target> [PROJECT=<path-to-project>] [RENDERER=hyperframes|remotion]"

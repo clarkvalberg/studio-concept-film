@@ -6,6 +6,14 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 ---
 
+## [1.2.1] — 2026-05-26
+
+### Fixed
+
+- Fixed a shellcheck warning in the renderer helper so the full GitHub lint workflow passes.
+
+---
+
 ## [1.2.0] — 2026-05-26
 
 ### Added
