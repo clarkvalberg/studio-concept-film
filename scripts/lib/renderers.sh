@@ -93,7 +93,7 @@ ensure_node_package_deps() {
   if [ ! -d "$package_dir/node_modules" ]; then
     echo "→ Installing $label dependencies"
     (
-      cd "$package_dir"
+      cd "$package_dir" || exit
       if [ -f package-lock.json ]; then
         npm ci --silent
       else
