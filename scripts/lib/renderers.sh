@@ -30,10 +30,10 @@ renderer_from_project() {
     renderer="$(awk -F'"' '/"renderer"[[:space:]]*:/ { print $4; exit }' "$project_dir/renderer.json")"
   elif [ -d "$project_dir/remotion" ] && [ ! -d "$project_dir/hyperframes" ]; then
     renderer="remotion"
-  elif [ -d "$project_dir/hyperframes" ]; then
+  elif [ -d "$project_dir/hyperframes" ] && [ ! -d "$project_dir/remotion" ]; then
     renderer="hyperframes"
   else
-    renderer="hyperframes"
+    renderer="remotion"
   fi
 
   normalize_renderer "$renderer"
@@ -80,8 +80,8 @@ write_renderer_config() {
   cat > "$project_dir/renderer.json" << JSON
 {
   "renderer": "$renderer",
-  "supported_renderers": ["hyperframes", "remotion"],
-  "default_renderer": "hyperframes"
+  "supported_renderers": ["remotion", "hyperframes"],
+  "default_renderer": "remotion"
 }
 JSON
 }

@@ -6,6 +6,16 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 ---
 
+## [1.3.0] — 2026-05-26
+
+### Changed
+
+- Made Remotion the default and recommended renderer for new concept-film projects.
+- Repositioned HyperFrames as the optional HTML/CSS/GSAP renderer.
+- Updated docs, skill guidance, CI smoke coverage, and renderer config defaults around the new default.
+
+---
+
 ## [1.2.1] — 2026-05-26
 
 ### Fixed

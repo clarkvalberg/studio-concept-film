@@ -62,15 +62,15 @@ Yes. The skill will use any ElevenLabs voice ID you provide. The shortlist is a 
 
 No. The skill takes a prototype as input — Figma link, deployed URL, screenshots, or a reference. Generating prototypes is a different job done better by other tools (Figma, v0, Lovable, real code). If you don't have a prototype yet, the skill uses schematic stand-ins and flags it in the brief; you can swap real screens in later and re-render.
 
-### Why HyperFrames by default?
+### Why Remotion by default?
 
-Because the rendering layer needs to be programmatic, version-controlled, and editable by humans. After-Effects-style timeline editors don't satisfy any of those. HyperFrames lets the film be an HTML/CSS/GSAP project — the script lives in JSON, the design lives in tokens, and the scenes are browser-native compositions. You can hand the resulting project to a designer or engineer and they'll know what to do.
+Because the rendering layer needs to be programmatic, version-controlled, and editable by humans. After-Effects-style timeline editors don't satisfy any of those. Remotion gives the skill a mature React composition model, strong component reuse, and a larger production surface for teams that may want to keep refining the film after the first render.
 
-It also renders entirely locally, so there's no SaaS dependency on the rendering side. Your videos are your videos.
+It also renders locally, so there's no SaaS dependency on the rendering side. Your videos are your videos.
 
-### Can I use Remotion instead?
+### Can I use HyperFrames instead?
 
-Yes. Initialize a project with `scripts/init-project.sh <project> --renderer remotion`, or ask for Remotion if a React-native video project is the better artifact. HyperFrames remains the default because it has less setup friction for this skill's HTML/GSAP workflow.
+Yes. Initialize a project with `scripts/init-project.sh <project> --renderer hyperframes`, or ask for HyperFrames if an HTML/CSS/GSAP project is the better artifact. Remotion remains the default because it tends to produce a stronger editable video project for this skill's concept-film workflow.
 
 ### Why not Premiere / Final Cut / DaVinci?
 

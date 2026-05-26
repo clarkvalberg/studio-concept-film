@@ -98,6 +98,6 @@
 
   <!-- Bottom note -->
   <g transform="translate(640, 380)" text-anchor="middle">
-    <text class="mono" letter-spacing="0.12em" fill="#6B6B6B">CLAUDE  /  HYPERFRAMES OR REMOTION  /  ELEVENLABS  /  MOBBIN</text>
+    <text class="mono" letter-spacing="0.12em" fill="#6B6B6B">CLAUDE  /  REMOTION OR HYPERFRAMES  /  ELEVENLABS  /  MOBBIN</text>
   </g>
 </svg>

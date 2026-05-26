@@ -87,30 +87,33 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y ffmpeg
 
-      - name: Render silent hook
+      - name: Render silent default hook
         run: |
           project="$(mktemp -d)"
           ./scripts/init-project.sh "$project"
           ./scripts/render-design-thumbnail.sh "$project"
           test -s "$project/out/design-thumbnail.png"
+          grep -q '"renderer": "remotion"' "$project/renderer.json"
           ffmpeg -y \
             -f lavfi \
             -i anullsrc=channel_layout=stereo:sample_rate=44100 \
             -t 15 \
             -q:a 9 \
             -acodec libmp3lame \
-            "$project/hyperframes/public/audio/hook.mp3"
+            "$project/remotion/public/audio/hook.mp3"
           ./scripts/render-hook.sh "$project"
           test -s "$project/out/hook.mp4"
           test -s "$project/out/cover-frame.png"
           ./scripts/check-static-video.sh "$project/out/hook.mp4"
           ffprobe -v error -select_streams a:0 -show_entries stream=codec_type -of csv=p=0 "$project/out/hook.mp4" | grep -q '^audio$'
 
-      - name: Remotion scaffold smoke
+      - name: HyperFrames scaffold smoke
         run: |
           project="$(mktemp -d)"
-          ./scripts/init-project.sh "$project" --renderer remotion
+          ./scripts/init-project.sh "$project" --renderer hyperframes
           test -f "$project/renderer.json"
-          grep -q '"renderer": "remotion"' "$project/renderer.json"
-          test -f "$project/remotion/src/data/film.ts"
-          test -f "$project/remotion/src/compositions/shared/BrandTokens.ts"
+          grep -q '"renderer": "hyperframes"' "$project/renderer.json"
+          test -f "$project/hyperframes/data/film.json"
+          test -f "$project/hyperframes/data/tokens.json"
+          ./scripts/render-design-thumbnail.sh "$project"
+          test -s "$project/out/design-thumbnail.png"

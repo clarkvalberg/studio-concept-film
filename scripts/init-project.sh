@@ -12,8 +12,8 @@
 set -euo pipefail
 
 usage() {
-  echo "Usage: $0 <project-directory> [--renderer hyperframes|remotion]" >&2
-  echo "Example: $0 ~/concepts/signatures-law --renderer hyperframes" >&2
+  echo "Usage: $0 <project-directory> [--renderer remotion|hyperframes]" >&2
+  echo "Example: $0 ~/concepts/signatures-law --renderer remotion" >&2
 }
 
 if [ $# -lt 1 ]; then

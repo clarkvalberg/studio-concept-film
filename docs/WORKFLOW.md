@@ -100,7 +100,7 @@ Before defining the design, Claude runs a compact visual source checkpoint: it n
 - **If the brand exists** (live product, established palette): Claude extracts it. Typography, color, motion sensibility, imagery direction.
 - **If the brand doesn't exist yet**: Claude proposes two named directions, each with a one-paragraph description and three concrete UI references from Mobbin, Refero, or an equivalent source (Editorial · Architectural · Documentary · Optimistic · Minimal-luxury).
 
-The chosen direction is recorded as concrete tokens in `design.md` — typefaces with weights, colors with hex values, motion principles with timing ranges, imagery direction, and cover-frame strategy. These tokens flow directly into the selected renderer template. HyperFrames is the default; Remotion is used when a React-native video project is the better artifact.
+The chosen direction is recorded as concrete tokens in `design.md` — typefaces with weights, colors with hex values, motion principles with timing ranges, imagery direction, and cover-frame strategy. These tokens flow directly into the selected renderer template. Remotion is the default; HyperFrames is available when an HTML/CSS/GSAP project is the better artifact.
 
 Then Claude renders `out/design-thumbnail.png`: a 16:9 title-frame / style-frame artifact showing the type, palette, spacing, screen treatment, and overall vibe in one glance. If the user reacts with "warmer," "less corporate," "more premium," "too dark," or similar, Claude updates the tokens and re-renders the thumbnail until it lands.
 

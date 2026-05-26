@@ -6,10 +6,10 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-1A1614.svg?style=flat-square)](LICENSE)
 [![Claude Skill](https://img.shields.io/badge/Claude-Skill-C68B3C.svg?style=flat-square)](https://claude.com/skills)
-[![Default Renderer: HyperFrames](https://img.shields.io/badge/Default%20Renderer-HyperFrames-1A1614.svg?style=flat-square)](https://github.com/heygen-com/hyperframes)
-[![Optional Renderer: Remotion](https://img.shields.io/badge/Optional%20Renderer-Remotion-1A1614.svg?style=flat-square)](https://www.remotion.dev/)
+[![Default Renderer: Remotion](https://img.shields.io/badge/Default%20Renderer-Remotion-1A1614.svg?style=flat-square)](https://www.remotion.dev/)
+[![Optional Renderer: HyperFrames](https://img.shields.io/badge/Optional%20Renderer-HyperFrames-1A1614.svg?style=flat-square)](https://github.com/heygen-com/hyperframes)
 [![Voice: ElevenLabs](https://img.shields.io/badge/Voice-ElevenLabs-1A1614.svg?style=flat-square)](https://elevenlabs.io)
-[![Status: v1.2.1](https://img.shields.io/badge/Status-v1.2.1-2E6F5E.svg?style=flat-square)](CHANGELOG.md)
+[![Status: v1.3.0](https://img.shields.io/badge/Status-v1.3.0-2E6F5E.svg?style=flat-square)](CHANGELOG.md)
 
 **A Claude skill that produces sixty-to-ninety-second concept films for product concepts, studio projects, and early-stage ventures.**
 
@@ -78,7 +78,7 @@ The design thumbnail is the aesthetic iteration unit. The hook render is the vid
 
 - **Claude** with skills support (claude.ai, Claude Code, or any Claude environment that loads skills)
 - **Node.js 22+** and **FFmpeg** for rendering locally
-- **HyperFrames** is the default renderer; **Remotion** is available when a React-native video project is the better artifact
+- **Remotion** is the default renderer; **HyperFrames** is available when an HTML/CSS/GSAP project is the better artifact
 - **ElevenLabs API key** or access to the ElevenLabs Player MCP for voiceover
 
 ### Install the skill
@@ -115,7 +115,7 @@ your-project/
 ├── design.md          ← visual / motion language + cover-frame strategy
 ├── voice.json         ← selected ElevenLabs voice
 ├── renderer.json      ← selected renderer
-├── hyperframes/ or remotion/
+├── remotion/ or hyperframes/
 │   ├── data/ or src/
 │   └── public/
 └── out/
@@ -212,7 +212,8 @@ studio-video-creator/
 │   ├── render-hook.sh
 │   └── render-full.sh
 ├── assets/
-│   ├── hyperframes-template/     ← default rendering layer
+│   ├── remotion-template/        ← default React rendering layer
+│   ├── hyperframes-template/     ← optional HTML/GSAP rendering layer
 │   │   ├── compositions/
 │   │   │   ├── design-thumbnail.html
 │   │   │   ├── hook.html
@@ -222,7 +223,6 @@ studio-video-creator/
 │   │   │   └── tokens.json       ← design token contract
 │   │   └── scripts/
 │   │       └── studio-composition.js
-│   └── remotion-template/        ← optional React rendering layer
 └── docs/                         ← philosophy, workflow, examples
 ```
 

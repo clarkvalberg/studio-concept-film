@@ -1,9 +1,10 @@
 # Concept Film — HyperFrames Template
 
-This HyperFrames project is the default rendering layer for
-`studio-video-creator`. The skill copies it into a project directory, writes
-`data/film.json` and `data/tokens.json`, then renders the thumbnail, hook, and
-full film.
+This HyperFrames project is the optional HTML/GSAP rendering layer for
+`studio-video-creator`. Remotion is the default renderer. Choose HyperFrames
+when a browser-native HTML/CSS/JS project is the better artifact. The skill
+copies it into a project directory, writes `data/film.json` and
+`data/tokens.json`, then renders the thumbnail, hook, and full film.
 
 ## Commands
 

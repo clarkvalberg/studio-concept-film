@@ -65,8 +65,8 @@ By the end of a complete run, the user has, in their project directory:
 ├── motion-board.md    — beat-by-beat visual causality plan
 ├── design.md          — chosen visual/motion language, brand interpretation, cover strategy
 ├── voice.json         — selected ElevenLabs voice ID + audition notes
-├── renderer.json      — selected local renderer (`hyperframes` by default, `remotion` when warranted)
-├── hyperframes/ or remotion/
+├── renderer.json      — selected local renderer (`remotion` by default, `hyperframes` when warranted)
+├── remotion/ or hyperframes/
 │                      — renderer project, scenes filled with project content
 │   ├── package.json
 │   ├── data/ or src/
@@ -225,7 +225,7 @@ Either way, end with concrete tokens recorded in `design.md`:
 
 Also define the **cover frame strategy** in `design.md`. Read `references/cover-frame-strategy.md` if the best first frame is not obvious. Choose the archetype (title-card / product-first / human-moment / thesis), describe the actual frame-0 image, specify any on-screen text, and state why it still reads silently at small size.
 
-These tokens flow into the selected renderer template. HyperFrames is the default; use Remotion only when the user asks, the source project is already React, or the team needs a Remotion-native artifact. If renderer choice materially matters, read `references/renderers.md`.
+These tokens flow into the selected renderer template. Remotion is the default and recommended renderer; use HyperFrames when the user asks for an HTML/CSS/GSAP artifact or when that project shape is clearly better. If renderer choice materially matters, read `references/renderers.md`.
 
 **Thumbnail artifact:**
 
@@ -284,7 +284,7 @@ This is the critical UX moment. Do NOT render the full 90s film yet. Render only
 
 **Steps:**
 
-1. Run `scripts/init-project.sh` to copy the selected renderer template if Phase 4 did not already initialize it. Default to HyperFrames. Use `--renderer remotion` only for the cases in `references/renderers.md`.
+1. Run `scripts/init-project.sh` to copy the selected renderer template if Phase 4 did not already initialize it. Default to Remotion. Use `--renderer hyperframes` only for the cases in `references/renderers.md`.
 2. Generate the project's content files — populate scene props, design tokens, script timing, and motion-board intent — using the selected renderer's data contract. See `references/hyperframes-integration.md` or `references/remotion-integration.md` for exact paths.
 3. Generate the voiceover audio for the hook section via ElevenLabs (full TTS call with the selected voice_id and the hook script). Save via `scripts/generate-voiceover.sh <project> --hook-only`; it writes to the selected renderer's `public/audio/hook.mp3`.
 4. Run `scripts/render-hook.sh <project>` which calls the selected renderer to render the Hook composition and export frame 0 as `<project>/out/cover-frame.png`.
@@ -333,7 +333,7 @@ When you need depth, read the relevant subfile. Do not load these preemptively �
 | `references/design-language.md` | Phase 4 — UI reference querying, brand extraction, token specification |
 | `references/cover-frame-strategy.md` | Phase 4/6 — cover/poster-frame archetypes and review checklist |
 | `references/voice-shortlist.md` | Phase 5 — the 8 curated voices with IDs, personas, when to pick each |
-| `references/renderers.md` | Phase 4/6 — renderer choice; HyperFrames default, Remotion fallback, other tools to watch |
+| `references/renderers.md` | Phase 4/6 — renderer choice; Remotion default, HyperFrames option, other tools to watch |
 | `references/hyperframes-integration.md` | Phase 6/7 — HyperFrames file layout, data shape, render commands, debugging |
 | `references/remotion-integration.md` | Phase 6/7 — Remotion file layout and React component contract when selected |
 | `references/example-signatures-law.md` | Anytime — worked example walking through a real concept-film run |

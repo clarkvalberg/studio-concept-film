@@ -1,6 +1,6 @@
 # Concept Film — Remotion Template
 
-This Remotion project is the optional React rendering layer for the `studio-video-creator` skill. The default renderer is HyperFrames; choose Remotion when a React-native video artifact is the better fit. The skill scaffolds this into your project directory and populates two files with project-specific content.
+This Remotion project is the default React rendering layer for the `studio-video-creator` skill. The skill scaffolds this into your project directory and populates two files with project-specific content.
 
 ## What gets injected
 

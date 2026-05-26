@@ -22,8 +22,8 @@ Optional but recommended:
 
 Renderer note:
 
-- HyperFrames is the default renderer for new projects.
-- Remotion is also included for React-native video projects: `scripts/init-project.sh <project> --renderer remotion`.
+- Remotion is the default renderer for new projects.
+- HyperFrames is also included for HTML/CSS/GSAP video projects: `scripts/init-project.sh <project> --renderer hyperframes`.
 
 ---
 
@@ -131,7 +131,7 @@ If Claude does not recognize the request as a concept-film job, the skill is not
 
 Most common causes:
 
-- **Node or FFmpeg is missing** — run `node -v` and `ffmpeg -version`; the default HyperFrames path requires Node.js 22+ and FFmpeg
+- **Node or FFmpeg is missing** — run `node -v` and `ffmpeg -version`; local rendering requires Node.js 22+ and FFmpeg
 - **Missing audio file** — Phase 6 expects `public/audio/hook.mp3`; Phase 7 expects `public/audio/voiceover.mp3`
 - **Missing screenshots** — paths in the renderer data file must exist in `public/screens/`
 - **Font not found** — install the referenced fonts system-wide, or change them to system fonts

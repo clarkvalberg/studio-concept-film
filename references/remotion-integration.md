@@ -2,7 +2,7 @@
 
 Used in Phase 4, 6, and 7 only when `<project>/renderer.json` selects `remotion`. This file is the contract between the skill's outputs (script, design tokens, voice selection) and the Remotion template that renders the design thumbnail, hook, cover frame, and final film.
 
-The template lives in `assets/remotion-template/`. The skill copies it into the user's project directory with `scripts/init-project.sh <project> --renderer remotion`, then injects content via well-defined data files. The template is *generic*; the data is *project-specific*. Keep that boundary clean.
+The template lives in `assets/remotion-template/`. The skill copies it into the user's project directory with `scripts/init-project.sh <project>` (or `--renderer remotion` when being explicit), then injects content via well-defined data files. The template is *generic*; the data is *project-specific*. Keep that boundary clean.
 
 ## What the skill does, what the template does
 
